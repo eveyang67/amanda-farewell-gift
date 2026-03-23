@@ -11,14 +11,14 @@ const wishesData = [
     {
         id: 1,
         photo: "images/photo1.jpg",
-        blessing: "感谢您一直以来的指导和关怀，您的智慧和耐心让我们受益匪浅。愿您前程似锦，一切顺利！",
-        dailyQuote: "今日宜：珍藏每一份回忆，迎接每一个新的开始。"
+        blessing: "感谢您一直以来凡是过往，皆为序章。",
+        dailyQuote: "今日宜：逐光而行"
     },
     {
         id: 2,
         photo: "images/photo2.jpg",
-        blessing: "和您共事的日子是我职业生涯中最美好的时光。感谢您教会我的一切，祝您未来一切安好！",
-        dailyQuote: "今日宜：心怀感恩，勇敢前行。"
+        blessing: "Everything's coming up roses",
+        dailyQuote: "今日宜：笑口常开"
     },
     {
         id: 3,
@@ -37,6 +37,12 @@ const wishesData = [
         photo: "images/photo5.jpg",
         blessing: "您的离开让我们感到不舍，但更祝福您追逐新的梦想。记得常回来看看，我们永远是您的伙伴！",
         dailyQuote: "今日宜：珍惜相遇，期待重逢。"
+    },
+    {
+        id: 6,
+        photo: "images/photo6.jpg",
+        blessing: "您的离开让我们感到不舍，但更祝福您追逐新的梦想。记得常回来看看，我们永远是您的伙伴！",
+        dailyQuote: "今日宜：似曾相识"
     }
 ];
 
