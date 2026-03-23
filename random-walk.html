@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机漫步 - 抽取今日祝福</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="random-walk-container">
+        <a href="index.html" class="back-link">返回首页</a>
+        
+        <!-- 抽签按钮 -->
+        <button class="draw-button" id="drawBtn">
+            点击<br>抽签
+        </button>
+        
+        <!-- 结果卡片 -->
+        <div class="card-container" id="cardContainer">
+            <div class="result-card" id="resultCard">
+                <img class="result-photo" id="resultPhoto" src="" alt="合影照片">
+                <div class="result-blessing" id="resultBlessing"></div>
+                <div class="daily-quote" id="dailyQuote"></div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn" id="drawAgainBtn">再抽一次</button>
+                <a href="memories.html" class="action-btn">查看所有祝福</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/random-walk.js"></script>
+</body>
+</html>

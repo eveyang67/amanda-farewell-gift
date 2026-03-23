@@ -1,0 +1,377 @@
+/* ==================== */
+/* 基础样式 */
+/* ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background-color: #FDF8F3;
+    color: #4A4A4A;
+    min-height: 100vh;
+    /* 纸张纹理效果 */
+    background-image: 
+        radial-gradient(ellipse at 50% 0%, rgba(212, 165, 116, 0.1) 0%, transparent 60%),
+        linear-gradient(180deg, #FDF8F3 0%, #F5EDE3 100%);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==================== */
+/* 首页样式 */
+/* ==================== */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.home-title {
+    font-size: 2.5rem;
+    color: #8B7355;
+    margin-bottom: 60px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.home-title span {
+    font-weight: 500;
+    color: #D4A574;
+}
+
+/* 按钮容器 */
+.button-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* 书签卡片按钮 */
+.bookmark-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 40px 50px;
+    box-shadow: 
+        0 4px 20px rgba(139, 115, 85, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.4s ease-out;
+    text-align: center;
+    min-width: 200px;
+}
+
+.bookmark-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 12px 40px rgba(139, 115, 85, 0.2),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.bookmark-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.bookmark-title {
+    font-size: 1.4rem;
+    color: #8B7355;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.bookmark-desc {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* ==================== */
+/* 随机漫步页面 */
+/* ==================== */
+.random-walk-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* 抽签按钮 */
+.draw-button {
+    background: linear-gradient(135deg, #D4A574 0%, #8B7355 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 
+        0 8px 30px rgba(139, 115, 85, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-out;
+    font-family: inherit;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.draw-button:hover {
+    transform: scale(1.08);
+    box-shadow: 
+        0 12px 40px rgba(139, 115, 85, 0.4),
+        0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.draw-button:active {
+    transform: scale(0.95);
+}
+
+/* 卡片容器 */
+.card-container {
+    perspective: 1000px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 结果卡片 */
+.result-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 
+        0 8px 40px rgba(139, 115, 85, 0.15),
+        0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: rotateY(90deg);
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.result-card.show {
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+
+/* 照片 */
+.result-photo {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    filter: blur(20px);
+    transition: filter 1s ease-out;
+}
+
+.result-photo.clear {
+    filter: blur(0);
+}
+
+/* 祝福语 */
+.result-blessing {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4A4A4A;
+    margin-bottom: 20px;
+    min-height: 60px;
+}
+
+/* 日签 */
+.daily-quote {
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(139, 115, 85, 0.1) 100%);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    color: #8B7355;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+}
+
+.daily-quote.show {
+    opacity: 1;
+}
+
+/* 操作按钮区 */
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.action-btn {
+    background: transparent;
+    border: 2px solid #D4A574;
+    color: #8B7355;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    font-family: inherit;
+}
+
+.action-btn:hover {
+    background: #D4A574;
+    color: #FFFFFF;
+}
+
+/* ==================== */
+/* 往昔记忆页面 */
+/* ==================== */
+.memories-container {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.memories-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.memories-title {
+    font-size: 2.2rem;
+    color: #8B7355;
+    font-weight: 400;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.memories-subtitle {
+    font-size: 1rem;
+    color: #999;
+}
+
+/* 返回按钮 */
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: #8B7355;
+    font-size: 0.95rem;
+    transition: color 0.3s ease-out;
+}
+
+.back-link:hover {
+    color: #D4A574;
+}
+
+.back-link::before {
+    content: "← ";
+}
+
+/* 卡片瀑布流 */
+.memories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* 记忆卡片 */
+.memory-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 20px rgba(139, 115, 85, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease-out;
+}
+
+.memory-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 
+        0 12px 40px rgba(139, 115, 85, 0.2),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.memory-photo {
+    width: 100%;
+    display: block;
+}
+
+.memory-content {
+    padding: 20px;
+}
+
+.memory-blessing {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4A4A4A;
+}
+
+/* ==================== */
+/* 响应式设计 */
+/* ==================== */
+@media (max-width: 600px) {
+    .home-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .bookmark-card {
+        padding: 30px 40px;
+        min-width: 160px;
+    }
+
+    .draw-button {
+        width: 140px;
+        height: 140px;
+        font-size: 1.1rem;
+    }
+
+    .result-card {
+        padding: 20px;
+    }
+
+    .memories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .memories-title {
+        font-size: 1.6rem;
+    }
+}
+
+/* ==================== */
+/* 动画 */
+/* ==================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* 打字机光标效果 */
+.typing-cursor::after {
+    content: "|";
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
