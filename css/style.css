@@ -3198,6 +3198,34 @@ body.home-page .bookmark-card:nth-child(3) .bookmark-icon {
     margin-bottom: 30px !important;
 }
 
+/* Home And Gallery Fine Tune */
+body.home-page .button-container {
+    margin-top: 1.15rem;
+}
+
+body.home-page .home-container {
+    padding-top: 4.4rem !important;
+}
+
+.page-gallery .gallery-section-alt .section-copy p:last-child {
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
+}
+
+@media (max-width: 767px) {
+    body.home-page .button-container {
+        margin-top: 0.8rem;
+    }
+
+    body.home-page .home-container {
+        padding-top: 3rem !important;
+    }
+
+    .page-gallery .gallery-section-alt .section-copy p:last-child {
+        font-size: 0.78rem !important;
+    }
+}
+
 .page-gallery .gallery-header {
     margin-left: auto;
     margin-right: auto;
