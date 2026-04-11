@@ -79,6 +79,96 @@
         };
     }
 
+    function buildHeartAssignments(slots) {
+        const extraCopies = Math.max(0, slots.length - availableGalleryData.length);
+        const remainingCounts = availableGalleryData.map(() => 1);
+
+        for (let index = 0; index < extraCopies; index += 1) {
+            const photoIndex = Math.floor((index * availableGalleryData.length) / extraCopies);
+            remainingCounts[photoIndex] += 1;
+        }
+
+        const slotLookup = new Map(
+            slots.map((slot, index) => [`${slot.row}:${slot.col}`, index])
+        );
+
+        const neighbors = slots.map(slot => {
+            const adjacent = [];
+
+            for (let rowOffset = -1; rowOffset <= 1; rowOffset += 1) {
+                for (let colOffset = -1; colOffset <= 1; colOffset += 1) {
+                    if (rowOffset === 0 && colOffset === 0) {
+                        continue;
+                    }
+
+                    const neighborIndex = slotLookup.get(`${slot.row + rowOffset}:${slot.col + colOffset}`);
+                    if (neighborIndex !== undefined) {
+                        adjacent.push(neighborIndex);
+                    }
+                }
+            }
+
+            return adjacent;
+        });
+
+        const assigned = new Array(slots.length).fill(-1);
+        const usageCounts = new Array(availableGalleryData.length).fill(0);
+        const slotOrder = slots
+            .map((slot, index) => ({
+                index,
+                degree: neighbors[index].length,
+                distance: Math.abs(slot.row - 7.5) + Math.abs(slot.col - 10)
+            }))
+            .sort((left, right) => right.degree - left.degree || left.distance - right.distance);
+
+        slotOrder.forEach(({ index: slotIndex }) => {
+            const blockedPhotos = new Set(
+                neighbors[slotIndex]
+                    .map(neighborIndex => assigned[neighborIndex])
+                    .filter(photoIndex => photoIndex !== -1)
+            );
+
+            let bestPhotoIndex = -1;
+            let bestScore = -Infinity;
+
+            remainingCounts.forEach((remainingCount, photoIndex) => {
+                if (remainingCount <= 0 || blockedPhotos.has(photoIndex)) {
+                    return;
+                }
+
+                const score =
+                    (usageCounts[photoIndex] === 0 ? 1000 : 0) +
+                    remainingCount * 10 -
+                    photoIndex * 0.001;
+
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestPhotoIndex = photoIndex;
+                }
+            });
+
+            if (bestPhotoIndex === -1) {
+                remainingCounts.forEach((remainingCount, photoIndex) => {
+                    if (remainingCount <= 0) {
+                        return;
+                    }
+
+                    const score = remainingCount * 10 - usageCounts[photoIndex];
+                    if (score > bestScore) {
+                        bestScore = score;
+                        bestPhotoIndex = photoIndex;
+                    }
+                });
+            }
+
+            assigned[slotIndex] = bestPhotoIndex;
+            remainingCounts[bestPhotoIndex] -= 1;
+            usageCounts[bestPhotoIndex] += 1;
+        });
+
+        return assigned;
+    }
+
     function getHeartData() {
         const template = collectHeartSlots();
         if (availableGalleryData.length === 0) {
@@ -89,9 +179,11 @@
             };
         }
 
-        const heartSlots = template.slots.map((slot, index) => {
-            const item = availableGalleryData[index % availableGalleryData.length];
-            return { ...slot, item, index };
+        const assignedPhotoIndexes = buildHeartAssignments(template.slots);
+        const heartSlots = template.slots.map((slot, slotIndex) => {
+            const photoIndex = assignedPhotoIndexes[slotIndex];
+            const item = availableGalleryData[photoIndex];
+            return { ...slot, item, index: photoIndex };
         });
 
         return {
