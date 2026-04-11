@@ -6,114 +6,26 @@
     <title>致亲爱的你</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="final-home">
+<body>
     <div class="home-container">
         <h1 class="home-title">致 <span>亲爱的Amanda</span></h1>
 
         <div class="button-container">
-            <a href="#randomWalkSection" class="bookmark-card">
+            <a href="random-walk.html" class="bookmark-card">
                 <span class="bookmark-icon">🎲</span>
                 <div class="bookmark-title">随机漫步</div>
-                <div class="bookmark-desc">抽取今日的祝福与回忆</div>
             </a>
 
-            <a href="#gallerySection" class="bookmark-card">
-                <span class="bookmark-icon">🫶</span>
-                <div class="bookmark-title">照片长廊</div>
-                <div class="bookmark-desc">翻看爱心照片墙与更多瞬间</div>
-            </a>
-
-            <a href="#memoriesSection" class="bookmark-card">
+            <a href="memories.html" class="bookmark-card">
                 <span class="bookmark-icon">📷</span>
                 <div class="bookmark-title">往昔记忆</div>
-                <div class="bookmark-desc">珍藏我们共同的时光</div>
+            </a>
+
+            <a href="gallery.html" class="bookmark-card">
+                <span class="bookmark-icon">🫶</span>
+                <div class="bookmark-title">照片长廊</div>
             </a>
         </div>
     </div>
-
-    <section class="final-section" id="randomWalkSection">
-        <div class="section-intro fade-in">
-            <p class="section-label">Random Walk</p>
-            <h2>随机抽一份今天的祝福</h2>
-            <p>这里保留了原来的抽签节奏。点击按钮后，会随机出现一张照片、一段同事祝福和一句日签。</p>
-        </div>
-
-        <div class="random-walk-container">
-            <button class="draw-button" id="drawBtn">
-                点击<br>抽签
-            </button>
-
-            <div class="card-container" id="cardContainer">
-                <div class="result-card" id="resultCard">
-                    <img class="result-photo" id="resultPhoto" src="" alt="合影照片">
-                    <div class="result-blessing" id="resultBlessing"></div>
-                    <div class="daily-quote" id="dailyQuote"></div>
-                </div>
-
-                <div class="action-buttons">
-                    <button class="action-btn" id="drawAgainBtn">再抽一次</button>
-                    <a href="#memoriesSection" class="action-btn">查看所有祝福</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="final-section" id="gallerySection">
-        <div class="gallery-page">
-            <header class="gallery-header fade-in">
-                <p class="gallery-kicker">Photo Gallery</p>
-                <h1 class="gallery-title">照片长廊</h1>
-                <p class="gallery-subtitle">把那些值得反复想起的时刻，拼成一颗心，也摊开成一面温柔的墙。</p>
-            </header>
-
-            <section class="gallery-section fade-in">
-                <div class="section-copy">
-                    <p class="section-label">Heart Wall</p>
-                    <h2>爱心照片墙</h2>
-                    <p>点击任意一张照片，就能放大查看。这里会优先呈现最适合拼成爱心轮廓的一组瞬间。</p>
-                </div>
-                <div class="heart-panel">
-                    <div class="heart-grid" id="heartGrid"></div>
-                </div>
-            </section>
-
-            <section class="gallery-section gallery-section-alt fade-in">
-                <div class="section-copy">
-                    <p class="section-label">Memory Wall</p>
-                    <h2>更多时刻，平铺成一面会发光的墙</h2>
-                    <p>相比普通平铺，这里用更像纪念册的错落拼贴方式展示全部照片，保留礼物感和浏览节奏。</p>
-                </div>
-                <div class="photo-wall" id="photoWall"></div>
-            </section>
-        </div>
-    </section>
-
-    <section class="final-section" id="memoriesSection">
-        <div class="memories-container">
-            <div class="memories-header">
-                <h1 class="memories-title">往昔记忆</h1>
-                <p class="memories-subtitle">全部祝福会在这里一次性展开，方便整体浏览。</p>
-            </div>
-
-            <div class="memories-grid" id="memoriesGrid">
-                <!-- 卡片将由JavaScript动态生成 -->
-            </div>
-        </div>
-    </section>
-
-    <div class="lightbox" id="lightbox" aria-hidden="true">
-        <button class="lightbox-close" id="lightboxClose" aria-label="关闭大图">×</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="上一张">‹</button>
-        <div class="lightbox-stage">
-            <img class="lightbox-image" id="lightboxImage" src="" alt="照片大图">
-            <div class="lightbox-caption" id="lightboxCaption"></div>
-        </div>
-        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="下一张">›</button>
-    </div>
-
-    <script src="js/data.js"></script>
-    <script src="js/random-walk.js"></script>
-    <script src="js/memories.js"></script>
-    <script src="js/gallery.js"></script>
 </body>
 </html>
