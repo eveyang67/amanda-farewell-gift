@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>照片长廊 - 收藏每一个闪闪发光的瞬间</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="gallery-page">
+        <a href="index.html" class="back-link">返回首页</a>
+
+        <header class="gallery-header fade-in">
+            <p class="gallery-kicker">Photo Gallery</p>
+            <h1 class="gallery-title">照片长廊</h1>
+            <p class="gallery-subtitle">把那些值得反复想起的时刻，拼成一颗心，也摊开成一面温柔的墙。</p>
+        </header>
+
+        <section class="gallery-section fade-in">
+            <div class="section-copy">
+                <p class="section-label">Heart Wall</p>
+                <h2>爱心照片墙</h2>
+                <p>点击任意一张照片，就能放大查看。这里会优先呈现最适合拼成爱心轮廓的一组瞬间。</p>
+            </div>
+            <div class="heart-panel">
+                <div class="heart-grid" id="heartGrid"></div>
+            </div>
+        </section>
+
+        <section class="gallery-section gallery-section-alt fade-in">
+            <div class="section-copy">
+                <p class="section-label">Memory Wall</p>
+                <h2>更多时刻，平铺成一面会发光的墙</h2>
+                <p>相比普通平铺，这里用更像纪念册的错落拼贴方式展示全部照片，保留礼物感和浏览节奏。</p>
+            </div>
+            <div class="photo-wall" id="photoWall"></div>
+        </section>
+    </div>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="关闭大图">×</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="上一张">‹</button>
+        <div class="lightbox-stage">
+            <img class="lightbox-image" id="lightboxImage" src="" alt="照片大图">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="下一张">›</button>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>

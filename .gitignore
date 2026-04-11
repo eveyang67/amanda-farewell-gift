@@ -9,3 +9,9 @@ Thumbs.db
 # 忽略临时文件
 *.tmp
 *.bak
+
+# 浏览器当前不直接使用的原始相册格式
+images/gallery/*.heic
+images/gallery/*.HEIC
+images/gallery/*.heif
+images/gallery/*.HEIF

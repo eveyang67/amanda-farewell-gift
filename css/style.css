@@ -18,6 +18,10 @@ body {
         linear-gradient(180deg, #FDF8F3 0%, #F5EDE3 100%);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -93,6 +97,50 @@ a {
 .bookmark-desc {
     font-size: 0.9rem;
     color: #999;
+}
+
+.final-section {
+    width: min(1280px, calc(100% - 24px));
+    margin: 0 auto 36px;
+}
+
+.section-intro {
+    text-align: center;
+    margin: 0 auto 28px;
+    max-width: 760px;
+}
+
+.section-intro h2 {
+    color: #8B7355;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.section-intro p:last-child {
+    color: #756A60;
+    line-height: 1.85;
+}
+
+.final-home .home-container {
+    min-height: 92vh;
+}
+
+.final-home .home-title {
+    margin-bottom: 32px;
+}
+
+.final-home .random-walk-container,
+.final-home .memories-container,
+.final-home .gallery-page {
+    min-height: auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.final-home .gallery-page,
+.final-home .memories-container {
+    max-width: none;
 }
 
 /* ==================== */
@@ -187,6 +235,7 @@ a {
     color: #4A4A4A;
     margin-bottom: 20px;
     min-height: 60px;
+    white-space: pre-line;
 }
 
 /* 日签 */
@@ -313,43 +362,518 @@ a {
     font-size: 1rem;
     line-height: 1.7;
     color: #4A4A4A;
+    white-space: pre-line;
+}
+
+/* ==================== */
+/* 照片长廊页面 */
+/* ==================== */
+.gallery-page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 60px 20px 100px;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.gallery-kicker,
+.section-label {
+    color: #B08D68;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    margin-bottom: 14px;
+}
+
+.gallery-title {
+    color: #8B7355;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+}
+
+.gallery-subtitle {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #7D7266;
+    line-height: 1.9;
+    font-size: 1rem;
+}
+
+.gallery-section {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(212, 165, 116, 0.18);
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(139, 115, 85, 0.08);
+    padding: 34px;
+    margin-bottom: 32px;
+}
+
+.gallery-section-alt {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(245, 237, 227, 0.92) 100%);
+}
+
+.section-copy {
+    margin-bottom: 28px;
+}
+
+.section-copy h2 {
+    color: #8B7355;
+    font-size: 1.9rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.section-copy p:last-child {
+    color: #756A60;
+    line-height: 1.85;
+    max-width: 760px;
+}
+
+.heart-panel {
+    display: flex;
+    justify-content: center;
+    padding: 12px 0 4px;
+}
+
+.heart-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--heart-columns, 18), minmax(22px, 1fr));
+    grid-template-rows: repeat(var(--heart-rows, 16), minmax(22px, 1fr));
+    gap: 4px;
+    width: min(100%, 1040px);
+    margin: 0 auto;
+}
+
+.heart-cell,
+.photo-tile {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background: #EADCCA;
+}
+
+.heart-cell {
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    box-shadow:
+        0 6px 16px rgba(139, 115, 85, 0.12),
+        0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.heart-cell:hover,
+.photo-tile:hover {
+    transform: translateY(-4px) rotate(-1deg);
+    box-shadow:
+        0 16px 34px rgba(139, 115, 85, 0.2),
+        0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.heart-cell img,
+.photo-tile img {
+    width: 100%;
+    display: block;
+}
+
+.heart-image {
+    height: 100%;
+    object-fit: cover;
+}
+
+.heart-cell::after,
+.photo-tile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 35%, rgba(74, 74, 74, 0.16) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.heart-cell:hover::after,
+.photo-tile:hover::after {
+    opacity: 1;
+}
+
+.photo-wall {
+    column-count: 4;
+    column-gap: 18px;
+}
+
+.photo-tile {
+    display: block;
+    width: 100%;
+    margin-bottom: 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.88);
+    padding: 10px;
+    box-shadow:
+        0 8px 24px rgba(139, 115, 85, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    break-inside: avoid;
+}
+
+.photo-tile-image {
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(45, 33, 24, 0.88);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 1000;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox-stage {
+    max-width: min(1000px, 78vw);
+    max-height: 86vh;
+    text-align: center;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 76vh;
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-caption {
+    color: #F5EDE3;
+    margin-top: 16px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.lightbox-close,
+.lightbox-nav {
+    position: absolute;
+    border: 0;
+    color: #FFF8F0;
+    background: rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.lightbox-close {
+    top: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.lightbox-nav {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.lightbox-prev {
+    left: 28px;
+}
+
+.lightbox-next {
+    right: 28px;
 }
 
 /* ==================== */
 /* 响应式设计 */
 /* ==================== */
-@media (max-width: 600px) {
+@media (max-width: 1024px) and (min-width: 768px) {
+    .home-container,
+    .random-walk-container {
+        padding: 56px 28px;
+    }
+
     .home-title {
+        font-size: 2.2rem;
+        margin-bottom: 48px;
+    }
+
+    .section-intro h2 {
         font-size: 1.8rem;
-        margin-bottom: 40px;
+    }
+
+    .button-container {
+        gap: 24px;
+    }
+
+    .bookmark-card {
+        min-width: 220px;
+        padding: 34px 34px;
+    }
+
+    .result-card {
+        max-width: 620px;
+        padding: 28px;
+    }
+
+    .result-blessing {
+        font-size: 1.08rem;
+        line-height: 1.9;
+    }
+
+    .daily-quote {
+        font-size: 1rem;
+    }
+
+    .memories-container {
+        padding: 56px 24px 80px;
+    }
+
+    .memories-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .memory-content {
+        padding: 18px;
+    }
+
+    .memory-blessing {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .gallery-page {
+        padding: 48px 24px 88px;
+    }
+
+    .gallery-title {
+        font-size: 2.6rem;
+    }
+
+    .gallery-subtitle {
+        font-size: 1.05rem;
+        line-height: 1.85;
+    }
+
+    .gallery-section {
+        padding: 28px 24px;
+    }
+
+    .section-copy h2 {
+        font-size: 1.7rem;
+    }
+
+    .section-copy p:last-child {
+        font-size: 1rem;
+    }
+
+    .heart-grid {
+        gap: 4px;
+        width: min(100%, 820px);
+    }
+
+    .heart-cell {
+        border-radius: 7px;
+    }
+
+    .photo-wall {
+        column-count: 3;
+        column-gap: 14px;
+    }
+
+    .lightbox-stage {
+        max-width: min(760px, 78vw);
+    }
+}
+
+@media (max-width: 767px) {
+    .home-title {
+        font-size: 1.9rem;
+        margin-bottom: 36px;
+        line-height: 1.4;
+    }
+
+    .final-section {
+        width: calc(100% - 16px);
+        margin-bottom: 22px;
+    }
+
+    .section-intro {
+        margin-bottom: 20px;
+        padding: 0 6px;
+    }
+
+    .section-intro h2 {
+        font-size: 1.4rem;
+        line-height: 1.35;
+    }
+
+    .section-intro p:last-child {
+        font-size: 0.96rem;
+        line-height: 1.8;
     }
 
     .button-container {
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
     }
 
     .bookmark-card {
-        padding: 30px 40px;
-        min-width: 160px;
+        padding: 24px 26px;
+        min-width: 0;
+        width: min(100%, 320px);
     }
 
     .draw-button {
-        width: 140px;
-        height: 140px;
-        font-size: 1.1rem;
+        width: 132px;
+        height: 132px;
+        font-size: 1rem;
     }
 
     .result-card {
-        padding: 20px;
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .result-blessing {
+        font-size: 1rem;
+        line-height: 1.9;
+        min-height: 0;
+    }
+
+    .daily-quote {
+        font-size: 0.95rem;
+        line-height: 1.7;
     }
 
     .memories-grid {
         grid-template-columns: 1fr;
+        gap: 18px;
     }
 
     .memories-title {
         font-size: 1.6rem;
+    }
+
+    .memories-subtitle,
+    .memory-blessing {
+        font-size: 0.98rem;
+        line-height: 1.8;
+    }
+
+    .gallery-page {
+        padding: 36px 14px 72px;
+    }
+
+    .gallery-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        letter-spacing: 0.04em;
+    }
+
+    .gallery-subtitle {
+        font-size: 0.98rem;
+        line-height: 1.8;
+    }
+
+    .gallery-section {
+        padding: 20px 14px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+
+    .section-copy h2 {
+        font-size: 1.35rem;
+        line-height: 1.35;
+    }
+
+    .section-copy p:last-child {
+        font-size: 0.96rem;
+        line-height: 1.8;
+    }
+
+    .heart-grid {
+        width: 100%;
+        gap: 3px;
+    }
+
+    .heart-cell {
+        border-radius: 5px;
+    }
+
+    .photo-wall {
+        column-count: 2;
+        column-gap: 10px;
+    }
+
+    .photo-tile {
+        padding: 8px;
+        border-radius: 14px;
+        margin-bottom: 10px;
+    }
+
+    .lightbox {
+        padding: 18px 12px;
+    }
+
+    .lightbox-stage {
+        max-width: 100%;
+    }
+
+    .lightbox-image {
+        max-height: 62vh;
+        border-radius: 16px;
+    }
+
+    .lightbox-caption {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    .lightbox-close {
+        top: 14px;
+        right: 14px;
+    }
+
+    .lightbox-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 1.8rem;
+        top: auto;
+        bottom: 24px;
+        transform: none;
+    }
+
+    .lightbox-prev {
+        left: 24px;
+    }
+
+    .lightbox-next {
+        right: 24px;
     }
 }
 

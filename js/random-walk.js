@@ -92,7 +92,7 @@
 
         // 最后显示日签
         await sleep(300);
-        dailyQuote.textContent = wish.dailyQuote;
+        dailyQuote.textContent = `日签：${wish.dailyQuote}`;
         dailyQuote.classList.add('show');
     }
 
