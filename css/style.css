@@ -3171,3 +3171,44 @@ body.home-page .bookmark-card:nth-child(3) .bookmark-icon {
         height: auto;
     }
 }
+
+/* Memories And Gallery Text Alignment Final Override */
+.page-memories .memories-header,
+.page-gallery .gallery-header,
+.page-gallery .section-copy {
+    text-align: center !important;
+    max-width: 100% !important;
+}
+
+.page-memories .memories-title,
+.page-memories .memories-subtitle,
+.page-gallery .gallery-title,
+.page-gallery .section-copy h2,
+.page-gallery .section-copy p:last-child {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-gallery .section-copy h2 {
+    max-width: none;
+}
+
+.page-gallery .gallery-section .section-copy {
+    margin-bottom: 30px !important;
+}
+
+.page-gallery .gallery-header {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-gallery .gallery-title {
+    margin-bottom: 0;
+}
+
+.page-gallery .gallery-section .section-copy p:last-child,
+.page-gallery .gallery-section-alt .section-copy p:last-child {
+    color: #111111 !important;
+    max-width: none;
+}
