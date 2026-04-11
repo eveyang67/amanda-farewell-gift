@@ -7,15 +7,238 @@
     box-sizing: border-box;
 }
 
+:root {
+    --sage-950: #33443a;
+    --sage-900: #405247;
+    --sage-800: #4d6256;
+    --sage-700: #64806d;
+    --sage-600: #7c9b85;
+    --sage-500: #97b39d;
+    --sage-300: #cfddd0;
+    --sage-200: #e4eee3;
+    --sage-100: #f0f6ef;
+    --ivory-100: #fbfdf8;
+    --ivory-200: #f4f8f1;
+    --line-soft: rgba(125, 155, 133, 0.22);
+    --shadow-soft: rgba(77, 98, 86, 0.12);
+    --shadow-strong: rgba(58, 76, 64, 0.18);
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    background-color: #FDF8F3;
-    color: #4A4A4A;
+    background-color: var(--ivory-100);
+    color: var(--sage-900);
     min-height: 100vh;
-    /* 纸张纹理效果 */
     background-image: 
-        radial-gradient(ellipse at 50% 0%, rgba(212, 165, 116, 0.1) 0%, transparent 60%),
-        linear-gradient(180deg, #FDF8F3 0%, #F5EDE3 100%);
+        radial-gradient(circle at 10% 16%, rgba(167, 194, 173, 0.18) 0%, transparent 22%),
+        radial-gradient(circle at 88% 10%, rgba(183, 204, 186, 0.16) 0%, transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(84, 106, 90, 0.08) 0%, transparent 34%),
+        linear-gradient(180deg, #fcfefb 0%, #f1f7ef 54%, #e6efe3 100%);
+    background-attachment: fixed;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: auto;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    top: 32px;
+    left: 18px;
+    width: 180px;
+    height: 180px;
+    background:
+        radial-gradient(ellipse at 34% 60%, rgba(192, 214, 194, 0.34) 0 22px, transparent 23px),
+        radial-gradient(ellipse at 52% 34%, rgba(170, 196, 174, 0.28) 0 28px, transparent 29px),
+        radial-gradient(ellipse at 72% 58%, rgba(138, 167, 145, 0.18) 0 22px, transparent 23px),
+        radial-gradient(circle at 52% 52%, rgba(255, 255, 255, 0.48) 0 8px, transparent 9px);
+    opacity: 0.82;
+    transform: rotate(-16deg);
+}
+
+body::after {
+    right: 22px;
+    bottom: 28px;
+    width: 220px;
+    height: 220px;
+    background:
+        radial-gradient(ellipse at 28% 62%, rgba(203, 222, 205, 0.28) 0 24px, transparent 25px),
+        radial-gradient(ellipse at 54% 34%, rgba(175, 199, 180, 0.24) 0 34px, transparent 35px),
+        radial-gradient(ellipse at 74% 56%, rgba(140, 170, 147, 0.16) 0 24px, transparent 25px),
+        radial-gradient(circle at 52% 50%, rgba(255, 255, 255, 0.42) 0 10px, transparent 11px);
+    opacity: 0.76;
+    transform: rotate(18deg);
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+.home-page {
+    background-image:
+        radial-gradient(circle at 14% 16%, rgba(176, 202, 182, 0.24) 0%, transparent 20%),
+        radial-gradient(circle at 86% 14%, rgba(142, 171, 150, 0.18) 0%, transparent 22%),
+        radial-gradient(circle at 52% 84%, rgba(86, 107, 90, 0.1) 0%, transparent 30%),
+        linear-gradient(180deg, #FAFDF8 0%, #EEF5EC 48%, #DFE9DE 100%);
+}
+
+.home-page::before {
+    top: 18px;
+    left: 12px;
+    width: 240px;
+    height: 240px;
+    background:
+        radial-gradient(ellipse at 34% 58%, rgba(190, 214, 192, 0.52) 0 26px, transparent 27px),
+        radial-gradient(ellipse at 52% 34%, rgba(165, 194, 171, 0.46) 0 32px, transparent 33px),
+        radial-gradient(ellipse at 70% 56%, rgba(143, 172, 150, 0.34) 0 28px, transparent 29px),
+        radial-gradient(circle at 52% 52%, rgba(255, 255, 255, 0.52) 0 10px, transparent 11px);
+    filter: blur(0.2px);
+    transform: rotate(-14deg);
+}
+
+.home-page::after {
+    right: 20px;
+    bottom: 24px;
+    width: 280px;
+    height: 280px;
+    background:
+        radial-gradient(ellipse at 30% 58%, rgba(197, 220, 198, 0.46) 0 34px, transparent 35px),
+        radial-gradient(ellipse at 54% 34%, rgba(172, 199, 178, 0.38) 0 42px, transparent 43px),
+        radial-gradient(ellipse at 74% 56%, rgba(140, 169, 147, 0.28) 0 34px, transparent 35px),
+        radial-gradient(circle at 52% 50%, rgba(255, 255, 255, 0.46) 0 12px, transparent 13px);
+    filter: blur(0.2px);
+    transform: rotate(20deg);
+}
+
+.home-blooms {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bloom {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.74;
+    filter: drop-shadow(0 12px 24px rgba(133, 105, 83, 0.1));
+}
+
+.bloom::before,
+.bloom::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+}
+
+.bloom-a {
+    top: 76px;
+    left: 58px;
+    width: 168px;
+    height: 168px;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(251, 255, 249, 0.92) 0 12px, transparent 13px),
+        radial-gradient(circle at 34% 34%, rgba(238, 244, 235, 0.86) 0 18px, transparent 19px),
+        radial-gradient(circle at 68% 34%, rgba(233, 241, 229, 0.86) 0 18px, transparent 19px),
+        radial-gradient(circle at 74% 62%, rgba(225, 236, 221, 0.8) 0 18px, transparent 19px),
+        radial-gradient(circle at 28% 68%, rgba(239, 245, 235, 0.82) 0 18px, transparent 19px);
+}
+
+.bloom-a::before {
+    inset: 10px 28px 56px 28px;
+    background:
+        linear-gradient(135deg, rgba(162, 196, 169, 0.56) 0%, rgba(122, 159, 129, 0.22) 100%);
+    transform: rotate(-32deg);
+}
+
+.bloom-a::after {
+    inset: 64px 18px 12px 62px;
+    background:
+        linear-gradient(135deg, rgba(143, 178, 151, 0.46) 0%, rgba(96, 132, 105, 0.16) 100%);
+    transform: rotate(34deg);
+}
+
+.bloom-b {
+    right: 86px;
+    top: 122px;
+    width: 124px;
+    height: 124px;
+    opacity: 0.62;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(247, 251, 245, 0.9) 0 9px, transparent 10px),
+        radial-gradient(circle at 34% 34%, rgba(228, 237, 222, 0.8) 0 14px, transparent 15px),
+        radial-gradient(circle at 68% 34%, rgba(219, 231, 214, 0.8) 0 14px, transparent 15px),
+        radial-gradient(circle at 72% 64%, rgba(210, 225, 205, 0.76) 0 14px, transparent 15px),
+        radial-gradient(circle at 28% 68%, rgba(233, 242, 229, 0.82) 0 14px, transparent 15px);
+}
+
+.bloom-b::before {
+    inset: 12px 24px 40px 24px;
+    background: linear-gradient(135deg, rgba(164, 197, 169, 0.44) 0%, rgba(111, 144, 117, 0.14) 100%);
+    transform: rotate(-28deg);
+}
+
+.bloom-b::after {
+    inset: 46px 14px 10px 48px;
+    background: linear-gradient(135deg, rgba(151, 183, 157, 0.34) 0%, rgba(101, 132, 106, 0.12) 100%);
+    transform: rotate(34deg);
+}
+
+.bloom-c {
+    left: 112px;
+    bottom: 92px;
+    width: 104px;
+    height: 104px;
+    opacity: 0.5;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(248, 252, 246, 0.88) 0 8px, transparent 9px),
+        radial-gradient(circle at 34% 34%, rgba(228, 238, 223, 0.78) 0 12px, transparent 13px),
+        radial-gradient(circle at 68% 34%, rgba(223, 234, 218, 0.78) 0 12px, transparent 13px),
+        radial-gradient(circle at 72% 64%, rgba(212, 227, 207, 0.7) 0 12px, transparent 13px),
+        radial-gradient(circle at 28% 68%, rgba(236, 243, 232, 0.76) 0 12px, transparent 13px);
+}
+
+.bloom-c::before {
+    inset: 10px 18px 34px 18px;
+    background: linear-gradient(135deg, rgba(165, 198, 171, 0.42) 0%, rgba(112, 144, 118, 0.14) 100%);
+    transform: rotate(-30deg);
+}
+
+.bloom-c::after {
+    inset: 38px 10px 8px 40px;
+    background: linear-gradient(135deg, rgba(146, 177, 152, 0.28) 0%, rgba(100, 129, 105, 0.1) 100%);
+    transform: rotate(28deg);
+}
+
+.bloom-d {
+    right: 124px;
+    bottom: 68px;
+    width: 184px;
+    height: 184px;
+    opacity: 0.48;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(248, 252, 246, 0.92) 0 12px, transparent 13px),
+        radial-gradient(circle at 34% 34%, rgba(232, 239, 227, 0.82) 0 18px, transparent 19px),
+        radial-gradient(circle at 68% 34%, rgba(225, 235, 220, 0.82) 0 18px, transparent 19px),
+        radial-gradient(circle at 74% 62%, rgba(214, 227, 209, 0.76) 0 18px, transparent 19px),
+        radial-gradient(circle at 28% 68%, rgba(236, 244, 232, 0.8) 0 18px, transparent 19px);
+}
+
+.bloom-d::before {
+    inset: 14px 30px 62px 30px;
+    background: linear-gradient(135deg, rgba(164, 197, 169, 0.46) 0%, rgba(112, 146, 119, 0.16) 100%);
+    transform: rotate(-32deg);
+}
+
+.bloom-d::after {
+    inset: 70px 18px 14px 68px;
+    background: linear-gradient(135deg, rgba(145, 177, 151, 0.32) 0%, rgba(98, 128, 104, 0.12) 100%);
+    transform: rotate(34deg);
 }
 
 html {
@@ -36,48 +259,55 @@ a {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 40px 20px;
+    padding: 48px 20px;
 }
 
 .home-title {
-    font-size: 2.5rem;
-    color: #8B7355;
-    margin-bottom: 60px;
+    font-size: 2.8rem;
+    color: #44584a;
+    margin-bottom: 48px;
     font-weight: 300;
-    letter-spacing: 2px;
+    letter-spacing: 0.12em;
+    text-align: center;
+    text-shadow: 0 10px 30px rgba(255, 255, 255, 0.58);
 }
 
 .home-title span {
-    font-weight: 500;
-    color: #D4A574;
+    font-weight: 600;
+    color: #6d8a70;
 }
 
 /* 按钮容器 */
 .button-container {
     display: flex;
-    gap: 40px;
+    gap: 28px;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 1080px;
 }
 
 /* 书签卡片按钮 */
 .bookmark-card {
-    background: #FFFFFF;
-    border-radius: 16px;
-    padding: 40px 50px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(241, 247, 240, 0.84) 100%);
+    border: 1px solid rgba(139, 168, 145, 0.22);
+    border-radius: 22px;
+    padding: 38px 34px 32px;
     box-shadow: 
-        0 4px 20px rgba(139, 115, 85, 0.1),
-        0 2px 8px rgba(0, 0, 0, 0.05);
+        0 22px 48px rgba(95, 121, 102, 0.14),
+        0 2px 10px rgba(49, 63, 53, 0.04);
     cursor: pointer;
     transition: all 0.4s ease-out;
     text-align: center;
-    min-width: 200px;
+    min-width: 230px;
+    max-width: 280px;
+    backdrop-filter: blur(14px);
 }
 
 .bookmark-card:hover {
     transform: translateY(-8px);
     box-shadow: 
-        0 12px 40px rgba(139, 115, 85, 0.2),
+        0 18px 44px rgba(95, 121, 102, 0.2),
         0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -85,18 +315,20 @@ a {
     font-size: 3rem;
     margin-bottom: 16px;
     display: block;
+    filter: drop-shadow(0 8px 18px rgba(109, 138, 112, 0.16));
 }
 
 .bookmark-title {
     font-size: 1.4rem;
-    color: #8B7355;
-    font-weight: 500;
+    color: #48604d;
+    font-weight: 600;
     margin-bottom: 8px;
 }
 
 .bookmark-desc {
-    font-size: 0.9rem;
-    color: #999;
+    font-size: 0.96rem;
+    color: #5f7363;
+    line-height: 1.8;
 }
 
 .final-section {
@@ -111,14 +343,14 @@ a {
 }
 
 .section-intro h2 {
-    color: #8B7355;
+    color: var(--sage-800);
     font-size: 2rem;
     font-weight: 400;
     margin-bottom: 12px;
 }
 
 .section-intro p:last-child {
-    color: #756A60;
+    color: var(--sage-700);
     line-height: 1.85;
 }
 
@@ -157,7 +389,7 @@ a {
 
 /* 抽签按钮 */
 .draw-button {
-    background: linear-gradient(135deg, #D4A574 0%, #8B7355 100%);
+    background: linear-gradient(135deg, #7f9f88 0%, #496355 100%);
     color: #FFFFFF;
     border: none;
     border-radius: 50%;
@@ -166,7 +398,7 @@ a {
     font-size: 1.3rem;
     cursor: pointer;
     box-shadow: 
-        0 8px 30px rgba(139, 115, 85, 0.3),
+        0 10px 34px rgba(73, 99, 85, 0.3),
         0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease-out;
     font-family: inherit;
@@ -179,7 +411,7 @@ a {
 .draw-button:hover {
     transform: scale(1.08);
     box-shadow: 
-        0 12px 40px rgba(139, 115, 85, 0.4),
+        0 14px 42px rgba(73, 99, 85, 0.38),
         0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
@@ -197,13 +429,14 @@ a {
 
 /* 结果卡片 */
 .result-card {
-    background: #FFFFFF;
-    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(242, 248, 241, 0.92) 100%);
+    border: 1px solid var(--line-soft);
+    border-radius: 24px;
     padding: 30px;
     max-width: 450px;
     width: 100%;
     box-shadow: 
-        0 8px 40px rgba(139, 115, 85, 0.15),
+        0 12px 40px rgba(77, 98, 86, 0.14),
         0 4px 16px rgba(0, 0, 0, 0.08);
     transform: rotateY(90deg);
     opacity: 0;
@@ -232,7 +465,7 @@ a {
 .result-blessing {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #4A4A4A;
+    color: var(--sage-900);
     margin-bottom: 20px;
     min-height: 60px;
     white-space: pre-line;
@@ -240,12 +473,13 @@ a {
 
 /* 日签 */
 .daily-quote {
-    background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(139, 115, 85, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(151, 179, 157, 0.2) 0%, rgba(99, 127, 106, 0.12) 100%);
+    border: 1px solid rgba(125, 155, 133, 0.16);
     border-radius: 12px;
     padding: 16px 20px;
     font-size: 0.95rem;
-    color: #8B7355;
-    font-style: italic;
+    color: var(--sage-800);
+    font-style: normal;
     opacity: 0;
     transition: opacity 0.8s ease-out;
 }
@@ -264,9 +498,9 @@ a {
 }
 
 .action-btn {
-    background: transparent;
-    border: 2px solid #D4A574;
-    color: #8B7355;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(125, 155, 133, 0.3);
+    color: var(--sage-800);
     padding: 12px 28px;
     border-radius: 30px;
     font-size: 1rem;
@@ -276,7 +510,7 @@ a {
 }
 
 .action-btn:hover {
-    background: #D4A574;
+    background: var(--sage-700);
     color: #FFFFFF;
 }
 
@@ -296,7 +530,7 @@ a {
 
 .memories-title {
     font-size: 2.2rem;
-    color: #8B7355;
+    color: var(--sage-800);
     font-weight: 400;
     margin-bottom: 10px;
     letter-spacing: 2px;
@@ -304,20 +538,20 @@ a {
 
 .memories-subtitle {
     font-size: 1rem;
-    color: #999;
+    color: var(--sage-700);
 }
 
 /* 返回按钮 */
 .back-link {
     display: inline-block;
     margin-bottom: 30px;
-    color: #8B7355;
+    color: var(--sage-800);
     font-size: 0.95rem;
     transition: color 0.3s ease-out;
 }
 
 .back-link:hover {
-    color: #D4A574;
+    color: var(--sage-600);
 }
 
 .back-link::before {
@@ -333,11 +567,12 @@ a {
 
 /* 记忆卡片 */
 .memory-card {
-    background: #FFFFFF;
-    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(242, 248, 241, 0.92) 100%);
+    border: 1px solid var(--line-soft);
+    border-radius: 18px;
     overflow: hidden;
     box-shadow: 
-        0 4px 20px rgba(139, 115, 85, 0.1),
+        0 10px 30px rgba(77, 98, 86, 0.1),
         0 2px 8px rgba(0, 0, 0, 0.05);
     transition: all 0.4s ease-out;
 }
@@ -345,13 +580,16 @@ a {
 .memory-card:hover {
     transform: translateY(-6px) scale(1.02);
     box-shadow: 
-        0 12px 40px rgba(139, 115, 85, 0.2),
+        0 16px 44px rgba(77, 98, 86, 0.18),
         0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .memory-photo {
     width: 100%;
     display: block;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: linear-gradient(135deg, #edf4eb 0%, #dbe8d9 100%);
 }
 
 .memory-content {
@@ -361,7 +599,7 @@ a {
 .memory-blessing {
     font-size: 1rem;
     line-height: 1.7;
-    color: #4A4A4A;
+    color: var(--sage-900);
     white-space: pre-line;
 }
 
@@ -376,12 +614,12 @@ a {
 
 .gallery-header {
     text-align: center;
-    margin-bottom: 56px;
+    margin-bottom: 40px;
 }
 
 .gallery-kicker,
 .section-label {
-    color: #B08D68;
+    color: var(--sage-600);
     letter-spacing: 0.22em;
     text-transform: uppercase;
     font-size: 0.78rem;
@@ -389,33 +627,33 @@ a {
 }
 
 .gallery-title {
-    color: #8B7355;
-    font-size: 3rem;
+    color: var(--sage-800);
+    font-size: 2.8rem;
     font-weight: 400;
     letter-spacing: 0.08em;
-    margin-bottom: 16px;
+    margin-bottom: 0;
 }
 
 .gallery-subtitle {
     max-width: 760px;
     margin: 0 auto;
-    color: #7D7266;
+    color: var(--sage-700);
     line-height: 1.9;
     font-size: 1rem;
 }
 
 .gallery-section {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(212, 165, 116, 0.18);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(241, 247, 240, 0.8) 100%);
+    border: 1px solid rgba(125, 155, 133, 0.18);
     border-radius: 28px;
-    box-shadow: 0 20px 50px rgba(139, 115, 85, 0.08);
+    box-shadow: 0 20px 50px rgba(77, 98, 86, 0.08);
     padding: 34px;
     margin-bottom: 32px;
 }
 
 .gallery-section-alt {
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(245, 237, 227, 0.92) 100%);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(234, 242, 233, 0.92) 100%);
 }
 
 .section-copy {
@@ -423,14 +661,14 @@ a {
 }
 
 .section-copy h2 {
-    color: #8B7355;
+    color: var(--sage-800);
     font-size: 1.9rem;
     font-weight: 400;
     margin-bottom: 12px;
 }
 
 .section-copy p:last-child {
-    color: #756A60;
+    color: var(--sage-700);
     line-height: 1.85;
     max-width: 760px;
 }
@@ -438,16 +676,17 @@ a {
 .heart-panel {
     display: flex;
     justify-content: center;
-    padding: 12px 0 4px;
+    padding: 6px 0 4px;
 }
 
 .heart-grid {
     display: grid;
-    grid-template-columns: repeat(var(--heart-columns, 18), minmax(22px, 1fr));
-    grid-template-rows: repeat(var(--heart-rows, 16), minmax(22px, 1fr));
-    gap: 4px;
-    width: min(100%, 1040px);
+    grid-template-columns: repeat(var(--heart-columns, 19), minmax(0, 1fr));
+    grid-template-rows: repeat(var(--heart-rows, 14), minmax(0, 1fr));
+    gap: 6px;
+    width: min(100%, 900px);
     margin: 0 auto;
+    justify-content: center;
 }
 
 .heart-cell,
@@ -457,14 +696,14 @@ a {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    background: #EADCCA;
+    background: #dde9dc;
 }
 
 .heart-cell {
     aspect-ratio: 1 / 1;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow:
-        0 6px 16px rgba(139, 115, 85, 0.12),
+        0 8px 18px rgba(77, 98, 86, 0.12),
         0 2px 6px rgba(0, 0, 0, 0.04);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -473,7 +712,7 @@ a {
 .photo-tile:hover {
     transform: translateY(-4px) rotate(-1deg);
     box-shadow:
-        0 16px 34px rgba(139, 115, 85, 0.2),
+        0 16px 34px rgba(77, 98, 86, 0.2),
         0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
@@ -493,7 +732,7 @@ a {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 35%, rgba(74, 74, 74, 0.16) 100%);
+    background: linear-gradient(180deg, transparent 35%, rgba(51, 68, 58, 0.18) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -506,6 +745,7 @@ a {
 .photo-wall {
     column-count: 4;
     column-gap: 18px;
+    min-height: 120px;
 }
 
 .photo-tile {
@@ -513,10 +753,10 @@ a {
     width: 100%;
     margin-bottom: 18px;
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.9);
     padding: 10px;
     box-shadow:
-        0 8px 24px rgba(139, 115, 85, 0.12),
+        0 10px 26px rgba(77, 98, 86, 0.12),
         0 2px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     break-inside: avoid;
@@ -528,10 +768,34 @@ a {
     border-radius: 12px;
 }
 
+.image-missing {
+    background: linear-gradient(135deg, #edf4eb 0%, #dbe8d9 100%);
+}
+
+.image-missing::before {
+    content: "照片加载失败";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: var(--sage-800);
+    font-size: 0.9rem;
+    z-index: 1;
+}
+
+.image-missing img {
+    opacity: 0;
+}
+
+.memories-sentinel {
+    width: 100%;
+    height: 1px;
+}
+
 .lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(45, 33, 24, 0.88);
+    background: rgba(32, 45, 37, 0.9);
     display: none;
     align-items: center;
     justify-content: center;
@@ -557,7 +821,7 @@ a {
 }
 
 .lightbox-caption {
-    color: #F5EDE3;
+    color: #eef5ed;
     margin-top: 16px;
     line-height: 1.7;
     font-size: 0.95rem;
@@ -567,8 +831,8 @@ a {
 .lightbox-nav {
     position: absolute;
     border: 0;
-    color: #FFF8F0;
-    background: rgba(255, 255, 255, 0.12);
+    color: #f7fbf6;
+    background: rgba(255, 255, 255, 0.14);
     cursor: pointer;
     transition: background 0.25s ease, transform 0.25s ease;
 }
@@ -631,7 +895,21 @@ a {
 
     .bookmark-card {
         min-width: 220px;
-        padding: 34px 34px;
+        padding: 34px 28px 28px;
+    }
+
+    .bloom-a {
+        width: 140px;
+        height: 140px;
+        left: 30px;
+        top: 70px;
+    }
+
+    .bloom-d {
+        width: 152px;
+        height: 152px;
+        right: 50px;
+        bottom: 54px;
     }
 
     .result-card {
@@ -671,7 +949,7 @@ a {
     }
 
     .gallery-title {
-        font-size: 2.6rem;
+        font-size: 2.4rem;
     }
 
     .gallery-subtitle {
@@ -692,12 +970,12 @@ a {
     }
 
     .heart-grid {
-        gap: 4px;
-        width: min(100%, 820px);
+        gap: 5px;
+        width: min(100%, 720px);
     }
 
     .heart-cell {
-        border-radius: 7px;
+        border-radius: 8px;
     }
 
     .photo-wall {
@@ -711,6 +989,39 @@ a {
 }
 
 @media (max-width: 767px) {
+    .home-page::before,
+    .home-page::after {
+        opacity: 0.58;
+    }
+
+    .bloom-a {
+        width: 98px;
+        height: 98px;
+        left: 14px;
+        top: 86px;
+    }
+
+    .bloom-b {
+        width: 82px;
+        height: 82px;
+        right: 18px;
+        top: 112px;
+    }
+
+    .bloom-c {
+        width: 72px;
+        height: 72px;
+        left: 12px;
+        bottom: 86px;
+    }
+
+    .bloom-d {
+        width: 112px;
+        height: 112px;
+        right: 18px;
+        bottom: 54px;
+    }
+
     .home-title {
         font-size: 1.9rem;
         margin-bottom: 36px;
@@ -743,9 +1054,14 @@ a {
     }
 
     .bookmark-card {
-        padding: 24px 26px;
+        padding: 24px 22px;
         min-width: 0;
         width: min(100%, 320px);
+    }
+
+    .bookmark-desc {
+        font-size: 0.94rem;
+        line-height: 1.75;
     }
 
     .draw-button {
@@ -887,15 +1203,4 @@ a {
 
 .fade-in {
     animation: fadeIn 0.6s ease-out forwards;
-}
-
-/* 打字机光标效果 */
-.typing-cursor::after {
-    content: "|";
-    animation: blink 0.8s infinite;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
 }

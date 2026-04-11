@@ -37,29 +37,6 @@
     }
 
     /**
-     * 打字机效果显示文字
-     */
-    function typeWriter(element, text, speed = 50) {
-        return new Promise(resolve => {
-            element.textContent = '';
-            element.classList.add('typing-cursor');
-            
-            let i = 0;
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                } else {
-                    element.classList.remove('typing-cursor');
-                    resolve();
-                }
-            }
-            type();
-        });
-    }
-
-    /**
      * 执行抽签动画
      */
     async function draw() {
@@ -86,9 +63,9 @@
         await sleep(800);
         resultPhoto.classList.add('clear');
 
-        // 等待照片清晰后，显示祝福语（打字机效果）
+        // 等待照片清晰后，直接显示祝福语
         await sleep(500);
-        await typeWriter(resultBlessing, wish.blessing, 40);
+        resultBlessing.textContent = wish.blessing;
 
         // 最后显示日签
         await sleep(300);

@@ -8,6 +8,7 @@
     });
     const heartGrid = document.getElementById('heartGrid');
     const photoWall = document.getElementById('photoWall');
+    const photoWallSection = document.getElementById('photoWallSection');
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxCaption = document.getElementById('lightboxCaption');
@@ -16,6 +17,24 @@
     const lightboxNext = document.getElementById('lightboxNext');
 
     let currentIndex = 0;
+    let photoWallRendered = false;
+
+    const HEART_TEMPLATE = [
+        "0001111000001111000",
+        "0111111110011111110",
+        "1111111111111111111",
+        "1111111111111111111",
+        "1111111111111111111",
+        "0111111111111111110",
+        "0011111111111111100",
+        "0001111111111111000",
+        "0000111111111110000",
+        "0000011111111100000",
+        "0000001111111000000",
+        "0000000111110000000",
+        "0000000011100000000",
+        "0000000001000000000"
+    ];
 
     function createImageButton(item, index, className, imageClassName) {
         const button = document.createElement('button');
@@ -27,9 +46,14 @@
         image.src = item.photo;
         image.alt = item.title || `照片 ${index + 1}`;
         image.loading = 'lazy';
+        image.decoding = 'async';
         if (imageClassName) {
             image.className = imageClassName;
         }
+        image.addEventListener('error', () => {
+            button.classList.add('image-missing');
+            image.alt = `${image.alt}（加载失败）`;
+        });
 
         button.appendChild(image);
         button.addEventListener('click', () => openLightbox(index));
@@ -37,68 +61,101 @@
         return button;
     }
 
-    function isHeartPoint(x, y) {
-        return Math.pow(x * x + y * y - 1, 3) - x * x * Math.pow(y, 3) <= 0;
-    }
-
-    function collectSlots(columns, rows) {
+    function collectHeartSlots() {
         const slots = [];
 
-        for (let row = 0; row < rows; row++) {
-            for (let col = 0; col < columns; col++) {
-                const x = (col / (columns - 1)) * 3 - 1.5;
-                const y = 1.55 - (row / (rows - 1)) * 2.7;
-
-                if (isHeartPoint(x, y)) {
-                    slots.push({ row: row + 1, col: col + 1 });
+        HEART_TEMPLATE.forEach((rowValue, rowIndex) => {
+            rowValue.split('').forEach((value, columnIndex) => {
+                if (value === '1') {
+                    slots.push({ row: rowIndex + 1, col: columnIndex + 1 });
                 }
-            }
-        }
+            });
+        });
 
-        return slots;
+        return {
+            columns: HEART_TEMPLATE[0].length,
+            rows: HEART_TEMPLATE.length,
+            slots
+        };
     }
 
-    function buildHeartSlots(count) {
-        let best = null;
-
-        for (let columns = 14; columns <= 30; columns++) {
-            for (let rows = 12; rows <= 30; rows++) {
-                const slots = collectSlots(columns, rows);
-                const diff = Math.abs(slots.length - count);
-
-                if (!best || diff < best.diff || (diff === best.diff && slots.length >= count && slots.length < best.slots.length)) {
-                    best = { columns, rows, slots, diff };
-                }
-            }
+    function getHeartData() {
+        const template = collectHeartSlots();
+        if (availableGalleryData.length === 0) {
+            return {
+                columns: template.columns,
+                rows: template.rows,
+                heartSlots: []
+            };
         }
 
-        return best;
+        const heartSlots = template.slots.map((slot, index) => {
+            const item = availableGalleryData[index % availableGalleryData.length];
+            return { ...slot, item, index };
+        });
+
+        return {
+            columns: template.columns,
+            rows: template.rows,
+            heartSlots
+        };
     }
 
     function renderHeartWall() {
-        const { columns, rows, slots } = buildHeartSlots(availableGalleryData.length);
+        const { columns, rows, heartSlots } = getHeartData();
 
         heartGrid.style.setProperty('--heart-columns', columns);
         heartGrid.style.setProperty('--heart-rows', rows);
 
-        availableGalleryData.forEach((item, index) => {
-            const slot = slots[index];
-            if (!slot) {
-                return;
-            }
-
+        heartSlots.forEach(({ item, index, row, col }) => {
             const cell = createImageButton(item, index, 'heart-cell', 'heart-image');
-            cell.style.gridColumn = `${slot.col}`;
-            cell.style.gridRow = `${slot.row}`;
+            cell.style.gridColumn = `${col}`;
+            cell.style.gridRow = `${row}`;
             heartGrid.appendChild(cell);
         });
     }
 
     function renderPhotoWall() {
+        if (photoWallRendered) {
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+
         availableGalleryData.forEach((item, index) => {
             const tile = createImageButton(item, index, 'photo-tile', 'photo-tile-image');
-            photoWall.appendChild(tile);
+            fragment.appendChild(tile);
         });
+
+        photoWall.appendChild(fragment);
+        photoWallRendered = true;
+    }
+
+    function observePhotoWall() {
+        if (!photoWallSection) {
+            renderPhotoWall();
+            return;
+        }
+
+        if (!('IntersectionObserver' in window)) {
+            renderPhotoWall();
+            return;
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                renderPhotoWall();
+                observer.disconnect();
+            });
+        }, {
+            rootMargin: '240px 0px'
+        });
+
+        observer.observe(photoWallSection);
     }
 
     function updateLightbox() {
@@ -132,7 +189,7 @@
     }
 
     renderHeartWall();
-    renderPhotoWall();
+    observePhotoWall();
     document.querySelector('.gallery-page').classList.add('fade-in');
 
     lightboxClose.addEventListener('click', closeLightbox);
