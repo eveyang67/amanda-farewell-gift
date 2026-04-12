@@ -225,7 +225,7 @@
 
         heartGrid.style.setProperty('--heart-columns', columns);
         heartGrid.style.setProperty('--heart-rows', rows);
-        const chunkSize = 18;
+        const chunkSize = 10;
         let pointer = 0;
 
         function appendChunk() {
@@ -257,7 +257,7 @@
         if (photoWallRendered) {
             return;
         }
-        const chunkSize = 20;
+        const chunkSize = 12;
         let pointer = 0;
 
         function appendChunk() {
@@ -316,9 +316,22 @@
             return;
         }
 
-        lightboxImage.src = item.photo;
+        const thumbPath = getThumbPhotoPath(item.photo);
+        lightboxImage.dataset.fullsrc = item.photo;
+        lightboxImage.src = thumbPath;
         lightboxImage.alt = item.title || `照片 ${currentIndex + 1}`;
         lightboxCaption.textContent = `第 ${currentIndex + 1} 张 / 共 ${availableGalleryData.length} 张`;
+
+        const fullImage = new Image();
+        fullImage.decoding = 'async';
+        fullImage.src = item.photo;
+        fullImage.addEventListener('load', () => {
+            if (lightboxImage.dataset.fullsrc !== item.photo) {
+                return;
+            }
+
+            lightboxImage.src = item.photo;
+        }, { once: true });
     }
 
     function openLightbox(index) {
