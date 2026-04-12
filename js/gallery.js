@@ -36,6 +36,14 @@
         "0000000001000000000"
     ];
 
+    function getThumbPhotoPath(photoPath) {
+        if (typeof photoPath !== 'string') {
+            return photoPath;
+        }
+
+        return photoPath.replace('images/gallery/', 'images/gallery/thumbs/');
+    }
+
     function createImageButton(item, index, className, imageClassName) {
         const button = document.createElement('button');
         button.className = className;
@@ -43,7 +51,7 @@
         button.setAttribute('aria-label', `查看第 ${index + 1} 张照片`);
 
         const image = document.createElement('img');
-        image.src = item.photo;
+        image.src = getThumbPhotoPath(item.photo);
         image.alt = item.title || `照片 ${index + 1}`;
         image.loading = 'lazy';
         image.decoding = 'async';
@@ -51,6 +59,10 @@
             image.className = imageClassName;
         }
         image.addEventListener('error', () => {
+            if (image.src !== new URL(item.photo, window.location.href).href) {
+                image.src = item.photo;
+                return;
+            }
             button.classList.add('image-missing');
             image.alt = `${image.alt}（加载失败）`;
         });

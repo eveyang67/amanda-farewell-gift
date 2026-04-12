@@ -1,0 +1,7 @@
+{
+  "envId": "replace-with-your-cloudbase-env-id",
+  "framework": {
+    "name": "static",
+    "plugins": {}
+  }
+}
