@@ -585,12 +585,12 @@ a {
     width: 100%;
     border-radius: 12px;
     margin-bottom: 20px;
-    filter: none;
-    transition: none;
+    filter: blur(20px);
+    transition: filter 1s ease-out;
 }
 
 .result-photo.clear {
-    filter: none;
+    filter: blur(0);
 }
 
 /* 祝福语 */
@@ -3245,21 +3245,4 @@ body.home-page .home-container {
 .page-gallery .gallery-section-alt .section-copy p:last-child {
     color: #111111 !important;
     max-width: none;
-}
-
-/* Performance Final Override */
-.memory-card {
-    content-visibility: auto;
-    contain-intrinsic-size: 440px;
-}
-
-.gallery-section,
-.gallery-section-alt {
-    content-visibility: auto;
-    contain-intrinsic-size: 920px;
-}
-
-.photo-tile {
-    content-visibility: auto;
-    contain-intrinsic-size: 240px;
 }
