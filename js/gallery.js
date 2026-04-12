@@ -316,22 +316,10 @@
             return;
         }
 
-        const thumbPath = getThumbPhotoPath(item.photo);
         lightboxImage.dataset.fullsrc = item.photo;
-        lightboxImage.src = thumbPath;
+        lightboxImage.src = item.photo;
         lightboxImage.alt = item.title || `照片 ${currentIndex + 1}`;
         lightboxCaption.textContent = `第 ${currentIndex + 1} 张 / 共 ${availableGalleryData.length} 张`;
-
-        const fullImage = new Image();
-        fullImage.decoding = 'async';
-        fullImage.src = item.photo;
-        fullImage.addEventListener('load', () => {
-            if (lightboxImage.dataset.fullsrc !== item.photo) {
-                return;
-            }
-
-            lightboxImage.src = item.photo;
-        }, { once: true });
     }
 
     function openLightbox(index) {
