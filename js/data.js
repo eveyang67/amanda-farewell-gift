@@ -305,727 +305,1066 @@ const galleryData = [
     {
         "id": 1,
         "photo": "images/gallery/062b83f15nb62969a44345c6f4bada90.JPG",
-        "title": "062b83f15nb62969a44345c6f4bada90"
+        "title": "062b83f15nb62969a44345c6f4bada90",
+        "width": 1440,
+        "height": 1080
     },
     {
         "id": 2,
         "photo": "images/gallery/08ffcf237ce7021f5dbcc6318554b47a.JPG",
-        "title": "08ffcf237ce7021f5dbcc6318554b47a"
+        "title": "08ffcf237ce7021f5dbcc6318554b47a",
+        "width": 1350,
+        "height": 1800
     },
     {
         "id": 3,
         "photo": "images/gallery/09f3556211d02685160ee2dab01de32a.JPG",
-        "title": "09f3556211d02685160ee2dab01de32a"
+        "title": "09f3556211d02685160ee2dab01de32a",
+        "width": 1012,
+        "height": 1800
     },
     {
         "id": 4,
         "photo": "images/gallery/12025b0d50bdaf0166786261cf7b7fde.jpg",
-        "title": "12025b0d50bdaf0166786261cf7b7fde"
+        "title": "12025b0d50bdaf0166786261cf7b7fde",
+        "width": 1279,
+        "height": 1140
     },
     {
         "id": 5,
         "photo": "images/gallery/2026-04-03 010044.jpg",
-        "title": "2026-04-03 010044"
+        "title": "2026-04-03 010044",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 6,
         "photo": "images/gallery/2026-04-03 010046.jpg",
-        "title": "2026-04-03 010046"
+        "title": "2026-04-03 010046",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 7,
         "photo": "images/gallery/2026-04-03 010048.jpg",
-        "title": "2026-04-03 010048"
+        "title": "2026-04-03 010048",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 8,
         "photo": "images/gallery/2026-04-03 010055.jpg",
-        "title": "2026-04-03 010055"
+        "title": "2026-04-03 010055",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 9,
         "photo": "images/gallery/2026-04-03 010103.jpg",
-        "title": "2026-04-03 010103"
+        "title": "2026-04-03 010103",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 10,
         "photo": "images/gallery/2026-04-03 010105.jpg",
-        "title": "2026-04-03 010105"
+        "title": "2026-04-03 010105",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 11,
         "photo": "images/gallery/2026-04-03 010108.jpg",
-        "title": "2026-04-03 010108"
+        "title": "2026-04-03 010108",
+        "width": 1200,
+        "height": 1800
     },
     {
         "id": 12,
         "photo": "images/gallery/2026-04-03 010113.jpg",
-        "title": "2026-04-03 010113"
+        "title": "2026-04-03 010113",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 13,
         "photo": "images/gallery/2026-04-03 010132.jpg",
-        "title": "2026-04-03 010132"
+        "title": "2026-04-03 010132",
+        "width": 1800,
+        "height": 1012
     },
     {
         "id": 14,
         "photo": "images/gallery/2026-04-03 010135.jpg",
-        "title": "2026-04-03 010135"
+        "title": "2026-04-03 010135",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 15,
         "photo": "images/gallery/2026-04-03 010138.jpg",
-        "title": "2026-04-03 010138"
+        "title": "2026-04-03 010138",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 16,
         "photo": "images/gallery/2026-04-03 010141.jpg",
-        "title": "2026-04-03 010141"
+        "title": "2026-04-03 010141",
+        "width": 1080,
+        "height": 1379
     },
     {
         "id": 17,
         "photo": "images/gallery/2026-04-03 010146.jpg",
-        "title": "2026-04-03 010146"
+        "title": "2026-04-03 010146",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 18,
         "photo": "images/gallery/2026-04-03 010148.jpg",
-        "title": "2026-04-03 010148"
+        "title": "2026-04-03 010148",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 19,
         "photo": "images/gallery/2026-04-03 010153.jpg",
-        "title": "2026-04-03 010153"
+        "title": "2026-04-03 010153",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 20,
         "photo": "images/gallery/2026-04-03 010158.jpg",
-        "title": "2026-04-03 010158"
+        "title": "2026-04-03 010158",
+        "width": 1347,
+        "height": 1800
     },
     {
         "id": 21,
         "photo": "images/gallery/2026-04-03 010435.jpg",
-        "title": "2026-04-03 010435"
+        "title": "2026-04-03 010435",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 22,
         "photo": "images/gallery/2026-04-03 010438.jpg",
-        "title": "2026-04-03 010438"
+        "title": "2026-04-03 010438",
+        "width": 1800,
+        "height": 1349
     },
     {
         "id": 23,
         "photo": "images/gallery/2026-04-03 010440.jpg",
-        "title": "2026-04-03 010440"
+        "title": "2026-04-03 010440",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 24,
         "photo": "images/gallery/2026-04-03 010442.jpg",
-        "title": "2026-04-03 010442"
+        "title": "2026-04-03 010442",
+        "width": 1600,
+        "height": 1066
     },
     {
         "id": 25,
         "photo": "images/gallery/2026-04-03 010445.jpg",
-        "title": "2026-04-03 010445"
+        "title": "2026-04-03 010445",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 26,
         "photo": "images/gallery/2026-04-03 010447.jpg",
-        "title": "2026-04-03 010447"
+        "title": "2026-04-03 010447",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 27,
         "photo": "images/gallery/2026-04-03 010459.jpg",
-        "title": "2026-04-03 010459"
+        "title": "2026-04-03 010459",
+        "width": 1080,
+        "height": 1437
     },
     {
         "id": 28,
         "photo": "images/gallery/2026-04-03 010502.jpg",
-        "title": "2026-04-03 010502"
+        "title": "2026-04-03 010502",
+        "width": 800,
+        "height": 1207
     },
     {
         "id": 29,
         "photo": "images/gallery/2026-04-03 010507.jpg",
-        "title": "2026-04-03 010507"
+        "title": "2026-04-03 010507",
+        "width": 1800,
+        "height": 1463
     },
     {
         "id": 30,
         "photo": "images/gallery/2026-04-03 010510.jpg",
-        "title": "2026-04-03 010510"
+        "title": "2026-04-03 010510",
+        "width": 1800,
+        "height": 1351
     },
     {
         "id": 31,
         "photo": "images/gallery/2026-04-03 010520.jpg",
-        "title": "2026-04-03 010520"
+        "title": "2026-04-03 010520",
+        "width": 1200,
+        "height": 1800
     },
     {
         "id": 32,
         "photo": "images/gallery/2026-04-03 010522.jpg",
-        "title": "2026-04-03 010522"
+        "title": "2026-04-03 010522",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 33,
         "photo": "images/gallery/2026-04-03 010525.jpg",
-        "title": "2026-04-03 010525"
+        "title": "2026-04-03 010525",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 34,
         "photo": "images/gallery/2026-04-03 010528.jpg",
-        "title": "2026-04-03 010528"
+        "title": "2026-04-03 010528",
+        "width": 1200,
+        "height": 1800
     },
     {
         "id": 35,
         "photo": "images/gallery/2026-04-03 014028.jpg",
-        "title": "2026-04-03 014028"
+        "title": "2026-04-03 014028",
+        "width": 1350,
+        "height": 1800
     },
     {
         "id": 36,
         "photo": "images/gallery/2026-04-03 014049.jpg",
-        "title": "2026-04-03 014049"
+        "title": "2026-04-03 014049",
+        "width": 1436,
+        "height": 1080
     },
     {
         "id": 37,
         "photo": "images/gallery/2026-04-03 014143.jpg",
-        "title": "2026-04-03 014143"
+        "title": "2026-04-03 014143",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 38,
         "photo": "images/gallery/2026-04-03 014226.jpg",
-        "title": "2026-04-03 014226"
+        "title": "2026-04-03 014226",
+        "width": 1800,
+        "height": 1012
     },
     {
         "id": 39,
         "photo": "images/gallery/2026-04-03 014241.jpg",
-        "title": "2026-04-03 014241"
+        "title": "2026-04-03 014241",
+        "width": 1200,
+        "height": 1600
     },
     {
         "id": 40,
         "photo": "images/gallery/2026-04-03 014333.jpg",
-        "title": "2026-04-03 014333"
+        "title": "2026-04-03 014333",
+        "width": 1338,
+        "height": 1800
     },
     {
         "id": 41,
         "photo": "images/gallery/2026-04-03 014503.jpg",
-        "title": "2026-04-03 014503"
+        "title": "2026-04-03 014503",
+        "width": 1280,
+        "height": 960
     },
     {
         "id": 42,
         "photo": "images/gallery/2026-04-03 014515.jpg",
-        "title": "2026-04-03 014515"
+        "title": "2026-04-03 014515",
+        "width": 720,
+        "height": 1280
     },
     {
         "id": 43,
         "photo": "images/gallery/2026-04-03 014525.jpg",
-        "title": "2026-04-03 014525"
+        "title": "2026-04-03 014525",
+        "width": 1600,
+        "height": 1066
     },
     {
         "id": 44,
         "photo": "images/gallery/2026-04-03 014541.jpg",
-        "title": "2026-04-03 014541"
+        "title": "2026-04-03 014541",
+        "width": 1600,
+        "height": 1067
     },
     {
         "id": 45,
         "photo": "images/gallery/2026-04-09 212307.jpg",
-        "title": "2026-04-09 212307"
+        "title": "2026-04-09 212307",
+        "width": 1706,
+        "height": 1279
     },
     {
         "id": 46,
         "photo": "images/gallery/2026-04-09 232215.jpg",
-        "title": "2026-04-09 232215"
+        "title": "2026-04-09 232215",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 47,
         "photo": "images/gallery/2026-04-10 112447.jpg",
-        "title": "2026-04-10 112447"
+        "title": "2026-04-10 112447",
+        "width": 1280,
+        "height": 1707
     },
     {
         "id": 48,
         "photo": "images/gallery/2026-04-10 112511.jpg",
-        "title": "2026-04-10 112511"
+        "title": "2026-04-10 112511",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 49,
         "photo": "images/gallery/2026-04-10 112530.jpg",
-        "title": "2026-04-10 112530"
+        "title": "2026-04-10 112530",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 50,
         "photo": "images/gallery/2026-04-10 112537.jpg",
-        "title": "2026-04-10 112537"
+        "title": "2026-04-10 112537",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 51,
         "photo": "images/gallery/2026-04-10 112543.jpg",
-        "title": "2026-04-10 112543"
+        "title": "2026-04-10 112543",
+        "width": 1200,
+        "height": 1800
     },
     {
         "id": 52,
         "photo": "images/gallery/2026-04-10 112553.jpg",
-        "title": "2026-04-10 112553"
+        "title": "2026-04-10 112553",
+        "width": 1279,
+        "height": 1706
     },
     {
         "id": 53,
         "photo": "images/gallery/2026-04-10 112559.jpg",
-        "title": "2026-04-10 112559"
+        "title": "2026-04-10 112559",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 54,
         "photo": "images/gallery/2026-04-10 112618.jpg",
-        "title": "2026-04-10 112618"
+        "title": "2026-04-10 112618",
+        "width": 1224,
+        "height": 1800
     },
     {
         "id": 55,
         "photo": "images/gallery/2026-04-10 112624.jpg",
-        "title": "2026-04-10 112624"
+        "title": "2026-04-10 112624",
+        "width": 1279,
+        "height": 1706
     },
     {
         "id": 56,
         "photo": "images/gallery/2026-04-10 112717.jpg",
-        "title": "2026-04-10 112717"
+        "title": "2026-04-10 112717",
+        "width": 1706,
+        "height": 1279
     },
     {
         "id": 57,
         "photo": "images/gallery/2026-04-10 112724.jpg",
-        "title": "2026-04-10 112724"
+        "title": "2026-04-10 112724",
+        "width": 1706,
+        "height": 1279
     },
     {
         "id": 58,
         "photo": "images/gallery/2026-04-10 112752.jpg",
-        "title": "2026-04-10 112752"
+        "title": "2026-04-10 112752",
+        "width": 1706,
+        "height": 1279
     },
     {
         "id": 59,
         "photo": "images/gallery/2026-04-10 142938.jpg",
-        "title": "2026-04-10 142938"
+        "title": "2026-04-10 142938",
+        "width": 651,
+        "height": 1024
     },
     {
         "id": 60,
         "photo": "images/gallery/2026-04-10 142943.jpg",
-        "title": "2026-04-10 142943"
+        "title": "2026-04-10 142943",
+        "width": 800,
+        "height": 600
     },
     {
         "id": 61,
         "photo": "images/gallery/2026-04-10 142947.jpg",
-        "title": "2026-04-10 142947"
+        "title": "2026-04-10 142947",
+        "width": 800,
+        "height": 600
     },
     {
         "id": 62,
         "photo": "images/gallery/2026-04-10 142951.jpg",
-        "title": "2026-04-10 142951"
+        "title": "2026-04-10 142951",
+        "width": 800,
+        "height": 600
     },
     {
         "id": 63,
         "photo": "images/gallery/2026-04-10 142956.jpg",
-        "title": "2026-04-10 142956"
+        "title": "2026-04-10 142956",
+        "width": 800,
+        "height": 600
     },
     {
         "id": 64,
         "photo": "images/gallery/2026-04-10 143000.jpg",
-        "title": "2026-04-10 143000"
+        "title": "2026-04-10 143000",
+        "width": 800,
+        "height": 600
     },
     {
         "id": 65,
         "photo": "images/gallery/2026-04-10 143004.jpg",
-        "title": "2026-04-10 143004"
+        "title": "2026-04-10 143004",
+        "width": 800,
+        "height": 368
     },
     {
         "id": 66,
         "photo": "images/gallery/289d833a7ee6e520e96a5d6acdecd8e7.jpg",
-        "title": "289d833a7ee6e520e96a5d6acdecd8e7"
+        "title": "289d833a7ee6e520e96a5d6acdecd8e7",
+        "width": 1800,
+        "height": 986
     },
     {
         "id": 67,
         "photo": "images/gallery/2f869291962328f24792a06a9ea7b159.JPG",
-        "title": "2f869291962328f24792a06a9ea7b159"
+        "title": "2f869291962328f24792a06a9ea7b159",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 68,
         "photo": "images/gallery/31CE20BD-C61C-4C2A-9D72-79F999721E33.JPG",
-        "title": "31CE20BD-C61C-4C2A-9D72-79F999721E33"
+        "title": "31CE20BD-C61C-4C2A-9D72-79F999721E33",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 69,
         "photo": "images/gallery/32cb8be6987ef141d52c1cba558a9229.JPG",
-        "title": "32cb8be6987ef141d52c1cba558a9229"
+        "title": "32cb8be6987ef141d52c1cba558a9229",
+        "width": 1800,
+        "height": 1012
     },
     {
         "id": 70,
         "photo": "images/gallery/447c6af28092b5fc3e944ee7fec61612.JPG",
-        "title": "447c6af28092b5fc3e944ee7fec61612"
+        "title": "447c6af28092b5fc3e944ee7fec61612",
+        "width": 1800,
+        "height": 1219
     },
     {
         "id": 71,
         "photo": "images/gallery/5a63ac306l1c634bc68130b080746bf2.JPG",
-        "title": "5a63ac306l1c634bc68130b080746bf2"
+        "title": "5a63ac306l1c634bc68130b080746bf2",
+        "width": 1440,
+        "height": 1080
     },
     {
         "id": 72,
         "photo": "images/gallery/5e1e765eer6f3088e145653000f5180e.JPG",
-        "title": "5e1e765eer6f3088e145653000f5180e"
+        "title": "5e1e765eer6f3088e145653000f5180e",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 73,
         "photo": "images/gallery/61deac84b233be2696466b460a652087.jpg",
-        "title": "61deac84b233be2696466b460a652087"
+        "title": "61deac84b233be2696466b460a652087",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 74,
         "photo": "images/gallery/6abc14a6c7bb675bf6e686a82542fed5.JPG",
-        "title": "6abc14a6c7bb675bf6e686a82542fed5"
+        "title": "6abc14a6c7bb675bf6e686a82542fed5",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 75,
         "photo": "images/gallery/6d567526a6009a334565e78922e06e89.JPG",
-        "title": "6d567526a6009a334565e78922e06e89"
+        "title": "6d567526a6009a334565e78922e06e89",
+        "width": 1706,
+        "height": 1215
     },
     {
         "id": 76,
         "photo": "images/gallery/729fd0d881d1cc6fc4608abcc1a584f3.jpg",
-        "title": "729fd0d881d1cc6fc4608abcc1a584f3"
+        "title": "729fd0d881d1cc6fc4608abcc1a584f3",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 77,
         "photo": "images/gallery/783ff4c7aaf75c845f11f3734f37e49f.JPG",
-        "title": "783ff4c7aaf75c845f11f3734f37e49f"
+        "title": "783ff4c7aaf75c845f11f3734f37e49f",
+        "width": 1707,
+        "height": 1280
     },
     {
         "id": 78,
         "photo": "images/gallery/79b295f8c1fa99df04b94a9c714e404e.JPG",
-        "title": "79b295f8c1fa99df04b94a9c714e404e"
+        "title": "79b295f8c1fa99df04b94a9c714e404e",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 79,
         "photo": "images/gallery/7dfa3eaad0ccf42083cb650a0e4dcdaa.JPG",
-        "title": "7dfa3eaad0ccf42083cb650a0e4dcdaa"
+        "title": "7dfa3eaad0ccf42083cb650a0e4dcdaa",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 80,
         "photo": "images/gallery/8A4CEA41-912B-4454-A5E6-99449363BC9B.JPG",
-        "title": "8A4CEA41-912B-4454-A5E6-99449363BC9B"
+        "title": "8A4CEA41-912B-4454-A5E6-99449363BC9B",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 81,
         "photo": "images/gallery/8cad6715aca0e8089a33f674b9ad35cd.JPG",
-        "title": "8cad6715aca0e8089a33f674b9ad35cd"
+        "title": "8cad6715aca0e8089a33f674b9ad35cd",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 82,
         "photo": "images/gallery/8d229dd8fq4e8b581b7455c4602a1298.JPG",
-        "title": "8d229dd8fq4e8b581b7455c4602a1298"
+        "title": "8d229dd8fq4e8b581b7455c4602a1298",
+        "width": 1080,
+        "height": 1440
     },
     {
         "id": 83,
         "photo": "images/gallery/8e518467805a7f72831654f4da8a4bd9.JPG",
-        "title": "8e518467805a7f72831654f4da8a4bd9"
+        "title": "8e518467805a7f72831654f4da8a4bd9",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 84,
         "photo": "images/gallery/90ed6326a3ec9f40ea9fea53d5be61ee.JPG",
-        "title": "90ed6326a3ec9f40ea9fea53d5be61ee"
+        "title": "90ed6326a3ec9f40ea9fea53d5be61ee",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 85,
         "photo": "images/gallery/98FA992B-B602-4A1D-8E8F-ADBC708CA30B.JPG",
-        "title": "98FA992B-B602-4A1D-8E8F-ADBC708CA30B"
+        "title": "98FA992B-B602-4A1D-8E8F-ADBC708CA30B",
+        "width": 1440,
+        "height": 960
     },
     {
         "id": 86,
         "photo": "images/gallery/9d8430cb1v6c9cd2fbc4e22d48ec5bc8.JPG",
-        "title": "9d8430cb1v6c9cd2fbc4e22d48ec5bc8"
+        "title": "9d8430cb1v6c9cd2fbc4e22d48ec5bc8",
+        "width": 1706,
+        "height": 1215
     },
     {
         "id": 87,
         "photo": "images/gallery/a077e175cb81658580f57fc42bbd720f.JPG",
-        "title": "a077e175cb81658580f57fc42bbd720f"
+        "title": "a077e175cb81658580f57fc42bbd720f",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 88,
         "photo": "images/gallery/a9ff9e7c63815a308405df8eb9fd3804.JPG",
-        "title": "a9ff9e7c63815a308405df8eb9fd3804"
+        "title": "a9ff9e7c63815a308405df8eb9fd3804",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 89,
         "photo": "images/gallery/b7554172c5e060413d06281ccd0c7f.JPG",
-        "title": "b7554172c5e060413d06281ccd0c7f"
+        "title": "b7554172c5e060413d06281ccd0c7f",
+        "width": 1440,
+        "height": 1080
     },
     {
         "id": 90,
         "photo": "images/gallery/bada595aava66edae8586f2dfe05ee98.JPG",
-        "title": "bada595aava66edae8586f2dfe05ee98"
+        "title": "bada595aava66edae8586f2dfe05ee98",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 91,
         "photo": "images/gallery/c2685c6cd6cb812914d798227c1645af.JPG",
-        "title": "c2685c6cd6cb812914d798227c1645af"
+        "title": "c2685c6cd6cb812914d798227c1645af",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 92,
         "photo": "images/gallery/cf0c134dbmf54d4c678f8e4db8cdb856.JPG",
-        "title": "cf0c134dbmf54d4c678f8e4db8cdb856"
+        "title": "cf0c134dbmf54d4c678f8e4db8cdb856",
+        "width": 1800,
+        "height": 1233
     },
     {
         "id": 93,
         "photo": "images/gallery/d359b10261171932dd9d466bc27e0eb4.JPG",
-        "title": "d359b10261171932dd9d466bc27e0eb4"
+        "title": "d359b10261171932dd9d466bc27e0eb4",
+        "width": 1012,
+        "height": 1800
     },
     {
         "id": 94,
         "photo": "images/gallery/dafc1d2c901601e66a2bdd8fc3b5f91b.JPG",
-        "title": "dafc1d2c901601e66a2bdd8fc3b5f91b"
+        "title": "dafc1d2c901601e66a2bdd8fc3b5f91b",
+        "width": 1279,
+        "height": 1706
     },
     {
         "id": 95,
         "photo": "images/gallery/db5fd268eu5e7187a26beedbb37d6660.JPG",
-        "title": "db5fd268eu5e7187a26beedbb37d6660"
+        "title": "db5fd268eu5e7187a26beedbb37d6660",
+        "width": 1080,
+        "height": 1440
     },
     {
         "id": 96,
         "photo": "images/gallery/E3077DC8-10FD-4F00-ADCE-38AB355475FE.JPG",
-        "title": "E3077DC8-10FD-4F00-ADCE-38AB355475FE"
+        "title": "E3077DC8-10FD-4F00-ADCE-38AB355475FE",
+        "width": 1440,
+        "height": 1440
     },
     {
         "id": 97,
         "photo": "images/gallery/E38DADBC-0C1E-4341-9EDA-F6A80EBE8E64.JPG",
-        "title": "E38DADBC-0C1E-4341-9EDA-F6A80EBE8E64"
+        "title": "E38DADBC-0C1E-4341-9EDA-F6A80EBE8E64",
+        "width": 1350,
+        "height": 1800
     },
     {
         "id": 98,
         "photo": "images/gallery/e54f1489c368945f8d112e843ab70fc1.JPG",
-        "title": "e54f1489c368945f8d112e843ab70fc1"
+        "title": "e54f1489c368945f8d112e843ab70fc1",
+        "width": 1225,
+        "height": 1800
     },
     {
         "id": 99,
         "photo": "images/gallery/e6d059e187b2adcbac56142c8425f739.JPG",
-        "title": "e6d059e187b2adcbac56142c8425f739"
+        "title": "e6d059e187b2adcbac56142c8425f739",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 100,
         "photo": "images/gallery/f1356aa376f8138b2db9e620b815aa79.jpg",
-        "title": "f1356aa376f8138b2db9e620b815aa79"
+        "title": "f1356aa376f8138b2db9e620b815aa79",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 101,
         "photo": "images/gallery/fb4bba51ac460e1d4b684b5f25585c83.JPG",
-        "title": "fb4bba51ac460e1d4b684b5f25585c83"
+        "title": "fb4bba51ac460e1d4b684b5f25585c83",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 102,
         "photo": "images/gallery/fdfa788e3b61a56dbc1ce912a943bc3e.jpg",
-        "title": "fdfa788e3b61a56dbc1ce912a943bc3e"
+        "title": "fdfa788e3b61a56dbc1ce912a943bc3e",
+        "width": 1279,
+        "height": 1191
     },
     {
         "id": 103,
         "photo": "images/gallery/IMG_1112.JPG",
-        "title": "IMG_1112"
+        "title": "IMG_1112",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 104,
         "photo": "images/gallery/IMG_1113.JPG",
-        "title": "IMG_1113"
+        "title": "IMG_1113",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 105,
         "photo": "images/gallery/IMG_1366.JPG",
-        "title": "IMG_1366"
+        "title": "IMG_1366",
+        "width": 1800,
+        "height": 1012
     },
     {
         "id": 106,
         "photo": "images/gallery/IMG_1860.JPG",
-        "title": "IMG_1860"
+        "title": "IMG_1860",
+        "width": 1458,
+        "height": 1080
     },
     {
         "id": 107,
         "photo": "images/gallery/IMG_2017.JPG",
-        "title": "IMG_2017"
+        "title": "IMG_2017",
+        "width": 1078,
+        "height": 1616
     },
     {
         "id": 108,
         "photo": "images/gallery/IMG_4330.JPG",
-        "title": "IMG_4330"
+        "title": "IMG_4330",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 109,
         "photo": "images/gallery/IMG_4336.JPG",
-        "title": "IMG_4336"
+        "title": "IMG_4336",
+        "width": 1800,
+        "height": 1012
     },
     {
         "id": 110,
         "photo": "images/gallery/IMG_4337.JPG",
-        "title": "IMG_4337"
+        "title": "IMG_4337",
+        "width": 1800,
+        "height": 1259
     },
     {
         "id": 111,
         "photo": "images/gallery/IMG_4338.JPG",
-        "title": "IMG_4338"
+        "title": "IMG_4338",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 112,
         "photo": "images/gallery/IMG_4378.JPG",
-        "title": "IMG_4378"
+        "title": "IMG_4378",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 113,
         "photo": "images/gallery/IMG_4407.JPG",
-        "title": "IMG_4407"
+        "title": "IMG_4407",
+        "width": 1800,
+        "height": 1012
     },
     {
         "id": 114,
         "photo": "images/gallery/IMG_4408.JPG",
-        "title": "IMG_4408"
+        "title": "IMG_4408",
+        "width": 1438,
+        "height": 1080
     },
     {
         "id": 115,
         "photo": "images/gallery/IMG_4410.JPG",
-        "title": "IMG_4410"
+        "title": "IMG_4410",
+        "width": 1440,
+        "height": 1080
     },
     {
         "id": 116,
         "photo": "images/gallery/IMG_4413.JPG",
-        "title": "IMG_4413"
+        "title": "IMG_4413",
+        "width": 1620,
+        "height": 1080
     },
     {
         "id": 117,
         "photo": "images/gallery/IMG_4415.JPG",
-        "title": "IMG_4415"
+        "title": "IMG_4415",
+        "width": 1080,
+        "height": 1440
     },
     {
         "id": 118,
         "photo": "images/gallery/IMG_4416.JPG",
-        "title": "IMG_4416"
+        "title": "IMG_4416",
+        "width": 1620,
+        "height": 1080
     },
     {
         "id": 119,
         "photo": "images/gallery/IMG_4419.JPG",
-        "title": "IMG_4419"
+        "title": "IMG_4419",
+        "width": 1800,
+        "height": 1012
     },
     {
         "id": 120,
         "photo": "images/gallery/IMG_4420.JPG",
-        "title": "IMG_4420"
+        "title": "IMG_4420",
+        "width": 1080,
+        "height": 1080
     },
     {
         "id": 121,
         "photo": "images/gallery/IMG_4421.JPG",
-        "title": "IMG_4421"
+        "title": "IMG_4421",
+        "width": 1440,
+        "height": 1080
     },
     {
         "id": 122,
         "photo": "images/gallery/IMG_4422.JPG",
-        "title": "IMG_4422"
+        "title": "IMG_4422",
+        "width": 1440,
+        "height": 1080
     },
     {
         "id": 123,
         "photo": "images/gallery/IMG_4423.JPG",
-        "title": "IMG_4423"
+        "title": "IMG_4423",
+        "width": 1800,
+        "height": 1012
     },
     {
         "id": 124,
         "photo": "images/gallery/IMG_4424.JPG",
-        "title": "IMG_4424"
+        "title": "IMG_4424",
+        "width": 1440,
+        "height": 1080
     },
     {
         "id": 125,
         "photo": "images/gallery/IMG_4425.JPG",
-        "title": "IMG_4425"
+        "title": "IMG_4425",
+        "width": 1338,
+        "height": 1080
     },
     {
         "id": 126,
         "photo": "images/gallery/IMG_4426.JPG",
-        "title": "IMG_4426"
+        "title": "IMG_4426",
+        "width": 1440,
+        "height": 1080
     },
     {
         "id": 127,
         "photo": "images/gallery/IMG_4429.JPG",
-        "title": "IMG_4429"
+        "title": "IMG_4429",
+        "width": 1312,
+        "height": 1080
     },
     {
         "id": 128,
         "photo": "images/gallery/IMG_4430.JPG",
-        "title": "IMG_4430"
+        "title": "IMG_4430",
+        "width": 1350,
+        "height": 1800
     },
     {
         "id": 129,
         "photo": "images/gallery/IMG_4431.JPG",
-        "title": "IMG_4431"
+        "title": "IMG_4431",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 130,
         "photo": "images/gallery/IMG_4432.JPG",
-        "title": "IMG_4432"
+        "title": "IMG_4432",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 131,
         "photo": "images/gallery/IMG_4434.JPG",
-        "title": "IMG_4434"
+        "title": "IMG_4434",
+        "width": 1800,
+        "height": 1012
     },
     {
         "id": 132,
         "photo": "images/gallery/IMG_4493.JPG",
-        "title": "IMG_4493"
+        "title": "IMG_4493",
+        "width": 1620,
+        "height": 1080
     },
     {
         "id": 133,
         "photo": "images/gallery/IMG_4976.JPG",
-        "title": "IMG_4976"
+        "title": "IMG_4976",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 134,
         "photo": "images/gallery/IMG_4977.JPG",
-        "title": "IMG_4977"
+        "title": "IMG_4977",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 135,
         "photo": "images/gallery/IMG_5014.JPG",
-        "title": "IMG_5014"
+        "title": "IMG_5014",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 136,
         "photo": "images/gallery/IMG_5651.JPG",
-        "title": "IMG_5651"
+        "title": "IMG_5651",
+        "width": 1800,
+        "height": 1201
     },
     {
         "id": 137,
         "photo": "images/gallery/IMG_5657.JPG",
-        "title": "IMG_5657"
+        "title": "IMG_5657",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 138,
         "photo": "images/gallery/IMG_5732.JPG",
-        "title": "IMG_5732"
+        "title": "IMG_5732",
+        "width": 1623,
+        "height": 1080
     },
     {
         "id": 139,
         "photo": "images/gallery/IMG_5876.JPG",
-        "title": "IMG_5876"
+        "title": "IMG_5876",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 140,
         "photo": "images/gallery/IMG_7378.JPG",
-        "title": "IMG_7378"
+        "title": "IMG_7378",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 141,
         "photo": "images/gallery/IMG_8312.JPG",
-        "title": "IMG_8312"
+        "title": "IMG_8312",
+        "width": 1800,
+        "height": 1012
     },
     {
         "id": 142,
         "photo": "images/gallery/IMG_8314.JPG",
-        "title": "IMG_8314"
+        "title": "IMG_8314",
+        "width": 1800,
+        "height": 1350
     },
     {
         "id": 143,
         "photo": "images/gallery/IMG_8315.JPG",
-        "title": "IMG_8315"
+        "title": "IMG_8315",
+        "width": 1800,
+        "height": 1012
     },
     {
         "id": 144,
         "photo": "images/gallery/IMG_8316.JPG",
-        "title": "IMG_8316"
+        "title": "IMG_8316",
+        "width": 1800,
+        "height": 1200
     },
     {
         "id": 145,
         "photo": "images/gallery/IMG_8317.JPG",
-        "title": "IMG_8317"
+        "title": "IMG_8317",
+        "width": 1800,
+        "height": 1350
+    },
+    {
+        "id": 146,
+        "photo": "images/gallery/0eb4f311db4ef0083d646a1fdfccc056.jpg",
+        "title": "0eb4f311db4ef0083d646a1fdfccc056",
+        "width": 1279,
+        "height": 2275
+    },
+    {
+        "id": 147,
+        "photo": "images/gallery/8b0eaea4ea2fab07ce3dcae86a4890fc.jpg",
+        "title": "8b0eaea4ea2fab07ce3dcae86a4890fc",
+        "width": 1279,
+        "height": 2275
+    },
+    {
+        "id": 148,
+        "photo": "images/gallery/IMG_20241107_183655.jpg",
+        "title": "IMG_20241107_183655",
+        "width": 800,
+        "height": 600
+    },
+    {
+        "id": 149,
+        "photo": "images/gallery/b001b355d5583b36cca7e746528c797b.jpg",
+        "title": "b001b355d5583b36cca7e746528c797b",
+        "width": 960,
+        "height": 1708
+    },
+    {
+        "id": 150,
+        "photo": "images/gallery/b8ca34eef9c1087e59413974ea9985c1.jpg",
+        "title": "b8ca34eef9c1087e59413974ea9985c1",
+        "width": 1279,
+        "height": 1706
+    },
+    {
+        "id": 151,
+        "photo": "images/gallery/c9b6224a122e510e81a6ef54fb25918b.jpg",
+        "title": "c9b6224a122e510e81a6ef54fb25918b",
+        "width": 2275,
+        "height": 1279
+    },
+    {
+        "id": 152,
+        "photo": "images/gallery/e9cb28246c8810d946c831f73bdf09ca.jpg",
+        "title": "e9cb28246c8810d946c831f73bdf09ca",
+        "width": 2275,
+        "height": 1279
     }
 ];
 
