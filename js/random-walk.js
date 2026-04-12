@@ -24,7 +24,7 @@
         return photoPath.replace('images/wishes/', 'images/wishes/thumbs/');
     }
 
-    function warmRandomWishImages(limit = wishesData.length) {
+    function warmRandomWishImages(limit = 8) {
         const shuffled = wishesData
             .map((item, index) => ({ item, sortKey: ((index * 17) + 11) % wishesData.length }))
             .sort((left, right) => left.sortKey - right.sortKey)
