@@ -90,14 +90,10 @@
                 resultPhoto.src = wish.photo;
             }
         };
+        resultPhoto.classList.add('clear');
 
-        // 延迟后翻转卡片
-        await sleep(100);
         resultCard.classList.add('show');
 
-        // 等待卡片翻转动画完成，然后照片变清晰
-        await sleep(800);
-        resultPhoto.classList.add('clear');
         if (resultPhoto.dataset.fullsrc) {
             const fullImage = new Image();
             fullImage.decoding = 'async';
@@ -107,12 +103,8 @@
             }, { once: true });
         }
 
-        // 等待照片清晰后，直接显示祝福语
-        await sleep(500);
         resultBlessing.textContent = wish.blessing;
 
-        // 最后显示日签
-        await sleep(300);
         dailyQuote.textContent = `日签：${wish.dailyQuote}`;
         dailyQuote.classList.add('show');
     }
@@ -128,13 +120,6 @@
         resultPhoto.classList.remove('clear');
         dailyQuote.classList.remove('show');
         resultBlessing.textContent = '';
-    }
-
-    /**
-     * 工具函数：延迟
-     */
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     // 绑定事件
