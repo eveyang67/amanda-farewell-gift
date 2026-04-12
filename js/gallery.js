@@ -18,6 +18,7 @@
 
     let currentIndex = 0;
     let photoWallRendered = false;
+    let heartWallRendered = false;
 
     const HEART_TEMPLATE = [
         "0001111000001111000",
@@ -55,6 +56,7 @@
         image.alt = item.title || `照片 ${index + 1}`;
         image.loading = 'lazy';
         image.decoding = 'async';
+        image.fetchPriority = 'low';
         if (imageClassName) {
             image.className = imageClassName;
         }
@@ -205,34 +207,80 @@
         };
     }
 
+    function scheduleFrame(callback) {
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(callback, { timeout: 120 });
+            return;
+        }
+
+        window.requestAnimationFrame(() => callback());
+    }
+
     function renderHeartWall() {
+        if (heartWallRendered) {
+            return;
+        }
+
         const { columns, rows, heartSlots } = getHeartData();
 
         heartGrid.style.setProperty('--heart-columns', columns);
         heartGrid.style.setProperty('--heart-rows', rows);
+        const chunkSize = 10;
+        let pointer = 0;
 
-        heartSlots.forEach(({ item, index, row, col }) => {
-            const cell = createImageButton(item, index, 'heart-cell', 'heart-image');
-            cell.style.gridColumn = `${col}`;
-            cell.style.gridRow = `${row}`;
-            heartGrid.appendChild(cell);
-        });
+        function appendChunk() {
+            const fragment = document.createDocumentFragment();
+            const end = Math.min(pointer + chunkSize, heartSlots.length);
+
+            for (; pointer < end; pointer += 1) {
+                const { item, index, row, col } = heartSlots[pointer];
+                const cell = createImageButton(item, index, 'heart-cell', 'heart-image');
+                cell.style.gridColumn = `${col}`;
+                cell.style.gridRow = `${row}`;
+                fragment.appendChild(cell);
+            }
+
+            heartGrid.appendChild(fragment);
+
+            if (pointer < heartSlots.length) {
+                scheduleFrame(appendChunk);
+                return;
+            }
+
+            heartWallRendered = true;
+        }
+
+        appendChunk();
     }
 
     function renderPhotoWall() {
         if (photoWallRendered) {
             return;
         }
+        const chunkSize = 12;
+        let pointer = 0;
 
-        const fragment = document.createDocumentFragment();
+        function appendChunk() {
+            const fragment = document.createDocumentFragment();
+            const end = Math.min(pointer + chunkSize, availableGalleryData.length);
 
-        availableGalleryData.forEach((item, index) => {
-            const tile = createImageButton(item, index, 'photo-tile', 'photo-tile-image');
-            fragment.appendChild(tile);
-        });
+            for (; pointer < end; pointer += 1) {
+                const item = availableGalleryData[pointer];
+                const tile = createImageButton(item, pointer, 'photo-tile', 'photo-tile-image');
+                fragment.appendChild(tile);
+            }
 
-        photoWall.appendChild(fragment);
-        photoWallRendered = true;
+            photoWall.appendChild(fragment);
+
+            if (pointer < availableGalleryData.length) {
+                scheduleFrame(appendChunk);
+                return;
+            }
+
+            photoWallRendered = true;
+        }
+
+        appendChunk();
     }
 
     function observePhotoWall() {
@@ -268,9 +316,22 @@
             return;
         }
 
-        lightboxImage.src = item.photo;
+        const thumbPath = getThumbPhotoPath(item.photo);
+        lightboxImage.dataset.fullsrc = item.photo;
+        lightboxImage.src = thumbPath;
         lightboxImage.alt = item.title || `照片 ${currentIndex + 1}`;
         lightboxCaption.textContent = `第 ${currentIndex + 1} 张 / 共 ${availableGalleryData.length} 张`;
+
+        const fullImage = new Image();
+        fullImage.decoding = 'async';
+        fullImage.src = item.photo;
+        fullImage.addEventListener('load', () => {
+            if (lightboxImage.dataset.fullsrc !== item.photo) {
+                return;
+            }
+
+            lightboxImage.src = item.photo;
+        }, { once: true });
     }
 
     function openLightbox(index) {
