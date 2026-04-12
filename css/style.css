@@ -881,15 +881,17 @@ a {
 }
 
 .photo-wall {
-    column-count: 4;
-    column-gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
     min-height: 120px;
+    align-items: start;
 }
 
 .photo-tile {
     display: block;
     width: 100%;
-    margin-bottom: 18px;
+    margin-bottom: 0;
     border-radius: 18px;
     background: rgba(243, 255, 244, 0.12);
     padding: 10px;
@@ -946,16 +948,17 @@ a {
 }
 
 .lightbox-stage {
-    max-width: min(1040px, 78vw);
-    max-height: 86vh;
+    max-width: min(1240px, 88vw);
+    max-height: 88vh;
     text-align: center;
 }
 
 .lightbox-image {
     max-width: 100%;
-    max-height: 76vh;
+    max-height: 82vh;
     border-radius: 24px;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+    image-rendering: auto;
 }
 
 .lightbox-caption {
@@ -1131,8 +1134,8 @@ a {
     }
 
     .photo-wall {
-        column-count: 3;
-        column-gap: 14px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
     }
 
     .lightbox-stage {
@@ -1345,8 +1348,8 @@ a {
     }
 
     .photo-wall {
-        column-count: 2;
-        column-gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
     }
 
     .photo-tile {
