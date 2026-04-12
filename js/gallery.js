@@ -257,22 +257,21 @@
         if (photoWallRendered) {
             return;
         }
-        const chunkSize = 12;
+        const photoRows = buildPhotoRows(availableGalleryData);
+        const chunkSize = 3;
         let pointer = 0;
 
         function appendChunk() {
             const fragment = document.createDocumentFragment();
-            const end = Math.min(pointer + chunkSize, availableGalleryData.length);
+            const end = Math.min(pointer + chunkSize, photoRows.length);
 
             for (; pointer < end; pointer += 1) {
-                const item = availableGalleryData[pointer];
-                const tile = createImageButton(item, pointer, 'photo-tile', 'photo-tile-image');
-                fragment.appendChild(tile);
+                fragment.appendChild(createPhotoRow(photoRows[pointer]));
             }
 
             photoWall.appendChild(fragment);
 
-            if (pointer < availableGalleryData.length) {
+            if (pointer < photoRows.length) {
                 scheduleFrame(appendChunk);
                 return;
             }
@@ -281,6 +280,136 @@
         }
 
         appendChunk();
+    }
+
+    function getItemRatio(item) {
+        if (typeof item.width === 'number' && typeof item.height === 'number' && item.height > 0) {
+            return item.width / item.height;
+        }
+
+        return 1;
+    }
+
+    function getOrientation(item) {
+        const ratio = getItemRatio(item);
+        if (ratio < 0.9) {
+            return 'portrait';
+        }
+        if (ratio > 1.12) {
+            return 'landscape';
+        }
+        return 'square';
+    }
+
+    function getPhotoWallConfig() {
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1280;
+
+        if (viewportWidth <= 767) {
+            return {
+                portraitRow: 2,
+                landscapeRow: 2,
+                squareRow: 2
+            };
+        }
+
+        if (viewportWidth <= 1024) {
+            return {
+                portraitRow: 3,
+                landscapeRow: 2,
+                squareRow: 3
+            };
+        }
+
+        return {
+            portraitRow: 4,
+            landscapeRow: 3,
+            squareRow: 4
+        };
+    }
+
+    function takeItems(queue, count) {
+        return queue.splice(0, Math.min(count, queue.length));
+    }
+
+    function buildPhotoRows(items) {
+        const config = getPhotoWallConfig();
+        const portraitQueue = [];
+        const landscapeQueue = [];
+        const squareQueue = [];
+
+        items.forEach(item => {
+            const orientation = getOrientation(item);
+            if (orientation === 'portrait') {
+                portraitQueue.push(item);
+                return;
+            }
+
+            if (orientation === 'landscape') {
+                landscapeQueue.push(item);
+                return;
+            }
+
+            squareQueue.push(item);
+        });
+
+        const rows = [];
+
+        function hasItems() {
+            return portraitQueue.length || landscapeQueue.length || squareQueue.length;
+        }
+
+        function fillRow(row, targetSize) {
+            while (row.length < targetSize && squareQueue.length) {
+                row.push(squareQueue.shift());
+            }
+
+            while (row.length < targetSize && portraitQueue.length && landscapeQueue.length) {
+                if (row.length % 2 === 0) {
+                    row.push(portraitQueue.shift());
+                } else {
+                    row.push(landscapeQueue.shift());
+                }
+            }
+
+            return row;
+        }
+
+        while (hasItems()) {
+            if (landscapeQueue.length >= portraitQueue.length && landscapeQueue.length > 0) {
+                const row = fillRow(takeItems(landscapeQueue, config.landscapeRow), config.landscapeRow);
+                rows.push({ kind: row.every(item => getOrientation(item) === 'landscape') ? 'landscape' : 'mixed', items: row });
+                continue;
+            }
+
+            if (portraitQueue.length > 0) {
+                const row = fillRow(takeItems(portraitQueue, config.portraitRow), config.portraitRow);
+                rows.push({ kind: row.every(item => getOrientation(item) === 'portrait') ? 'portrait' : 'mixed', items: row });
+                continue;
+            }
+
+            const row = takeItems(squareQueue, config.squareRow);
+            rows.push({ kind: 'square', items: row });
+        }
+
+        return rows.filter(row => row.items.length > 0);
+    }
+
+    function createPhotoRow(row) {
+        const rowElement = document.createElement('div');
+        rowElement.className = `photo-row photo-row--${row.kind}`;
+
+        row.items.forEach(item => {
+            const tile = createImageButton(
+                item,
+                availableGalleryData.indexOf(item),
+                'photo-tile',
+                'photo-tile-image'
+            );
+            tile.style.setProperty('--photo-ratio', `${getItemRatio(item)}`);
+            rowElement.appendChild(tile);
+        });
+
+        return rowElement;
     }
 
     function observePhotoWall() {
