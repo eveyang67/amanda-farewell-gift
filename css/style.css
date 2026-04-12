@@ -881,16 +881,37 @@ a {
 }
 
 .photo-wall {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 18px;
     min-height: 120px;
-    align-items: start;
+}
+
+.photo-row {
+    display: flex;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.photo-row--portrait {
+    --photo-row-height: clamp(250px, 24vw, 330px);
+}
+
+.photo-row--landscape {
+    --photo-row-height: clamp(180px, 16vw, 240px);
+}
+
+.photo-row--square,
+.photo-row--mixed {
+    --photo-row-height: clamp(210px, 19vw, 280px);
 }
 
 .photo-tile {
     display: block;
-    width: 100%;
+    width: auto;
+    flex: max(var(--photo-ratio, 1), 0.75) 1 0;
+    min-width: 0;
+    height: var(--photo-row-height, clamp(210px, 19vw, 280px));
     margin-bottom: 0;
     border-radius: 18px;
     background: rgba(243, 255, 244, 0.12);
@@ -903,7 +924,8 @@ a {
 }
 
 .photo-tile-image {
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     border-radius: 12px;
 }
@@ -1134,8 +1156,24 @@ a {
     }
 
     .photo-wall {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 14px;
+    }
+
+    .photo-row {
+        gap: 14px;
+    }
+
+    .photo-row--portrait {
+        --photo-row-height: clamp(220px, 28vw, 290px);
+    }
+
+    .photo-row--landscape {
+        --photo-row-height: clamp(170px, 20vw, 220px);
+    }
+
+    .photo-row--square,
+    .photo-row--mixed {
+        --photo-row-height: clamp(190px, 24vw, 240px);
     }
 
     .lightbox-stage {
@@ -1348,8 +1386,21 @@ a {
     }
 
     .photo-wall {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
+    }
+
+    .photo-row {
+        gap: 10px;
+    }
+
+    .photo-row--portrait {
+        --photo-row-height: clamp(180px, 44vw, 240px);
+    }
+
+    .photo-row--landscape,
+    .photo-row--square,
+    .photo-row--mixed {
+        --photo-row-height: clamp(150px, 38vw, 200px);
     }
 
     .photo-tile {
