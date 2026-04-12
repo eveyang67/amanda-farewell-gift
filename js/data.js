@@ -71,7 +71,7 @@ const wishesData = [
     {
         "id": 10,
         "name": "Belle Qin",
-        "photo": "images/wishes/Belle Qin.jpeg",
+        "photo": "images/wishes/Belle Qin.jpg",
         "blessing": "【Belle Qin】\n\nHi 亲爱的Amanda，\n\n很高兴和你成为同事~很不舍，和你共事的时间并不久，但很幸运，未来的时间还会很长！\n相信你未来一定会前程似锦！愿你永远在收获更美的风景和属于你的大女主故事！\n\nBelle.",
         "dailyQuote": "属于你的大女主故事，未来还有很长。"
     },
