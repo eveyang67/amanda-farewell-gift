@@ -74,7 +74,7 @@
 
         isAppending = true;
         const end = Math.min(renderedCount + count, wishesData.length);
-        const chunkSize = 4;
+        const chunkSize = 3;
 
         function appendChunk() {
             const fragment = document.createDocumentFragment();
