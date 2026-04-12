@@ -9,7 +9,14 @@
     let renderedCount = 0;
     let loadMoreObserver = null;
     let isAppending = false;
-    const fullFrameNames = new Set(['Clare Jiang', 'June Wu', 'Ma Xiaojiang']);
+    const fullFrameNames = new Set([
+        'Clare Jiang',
+        'June Wu',
+        'Ma Xiaojiang',
+        'Belle Qin',
+        'Echo Pi',
+        'Jackie Sun'
+    ]);
 
     function getThumbPhotoPath(photoPath) {
         if (typeof photoPath !== 'string') {
