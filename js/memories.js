@@ -4,7 +4,7 @@
 
 (function() {
     const memoriesGrid = document.getElementById('memoriesGrid');
-    const initialBatch = 10;
+    const initialBatch = 8;
     const batchSize = 8;
     let renderedCount = 0;
     let loadMoreObserver = null;

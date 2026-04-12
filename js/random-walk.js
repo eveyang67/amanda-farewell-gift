@@ -14,6 +14,36 @@
 
     // 用于记录已抽过的索引，避免短时间内重复
     let drawnIndices = [];
+    const warmImageCache = new Set();
+
+    function getThumbPhotoPath(photoPath) {
+        if (typeof photoPath !== 'string') {
+            return photoPath;
+        }
+
+        return photoPath.replace('images/wishes/', 'images/wishes/thumbs/');
+    }
+
+    function warmRandomWishImages(limit = 8) {
+        const shuffled = wishesData
+            .map((item, index) => ({ item, sortKey: ((index * 17) + 11) % wishesData.length }))
+            .sort((left, right) => left.sortKey - right.sortKey)
+            .slice(0, limit)
+            .map(entry => entry.item);
+
+        shuffled.forEach(item => {
+            const thumbPath = getThumbPhotoPath(item.photo);
+            if (warmImageCache.has(thumbPath)) {
+                return;
+            }
+
+            const image = new Image();
+            image.decoding = 'async';
+            image.loading = 'eager';
+            image.src = thumbPath;
+            warmImageCache.add(thumbPath);
+        });
+    }
 
     /**
      * 随机获取一个未抽过的数据
@@ -53,7 +83,13 @@
         resultBlessing.textContent = '';
 
         // 设置照片（先模糊）
-        resultPhoto.src = wish.photo;
+        resultPhoto.src = getThumbPhotoPath(wish.photo);
+        resultPhoto.dataset.fullsrc = wish.photo;
+        resultPhoto.onerror = () => {
+            if (resultPhoto.src !== new URL(wish.photo, window.location.href).href) {
+                resultPhoto.src = wish.photo;
+            }
+        };
 
         // 延迟后翻转卡片
         await sleep(100);
@@ -62,6 +98,14 @@
         // 等待卡片翻转动画完成，然后照片变清晰
         await sleep(800);
         resultPhoto.classList.add('clear');
+        if (resultPhoto.dataset.fullsrc) {
+            const fullImage = new Image();
+            fullImage.decoding = 'async';
+            fullImage.src = resultPhoto.dataset.fullsrc;
+            fullImage.addEventListener('load', () => {
+                resultPhoto.src = resultPhoto.dataset.fullsrc;
+            }, { once: true });
+        }
 
         // 等待照片清晰后，直接显示祝福语
         await sleep(500);
@@ -99,4 +143,5 @@
 
     // 添加页面入场动画
     document.querySelector('.random-walk-container').classList.add('fade-in');
+    warmRandomWishImages();
 })();
