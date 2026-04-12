@@ -8,6 +8,7 @@
     const batchSize = 8;
     let renderedCount = 0;
     let loadMoreObserver = null;
+    let isAppending = false;
     const fullFrameNames = new Set(['Clare Jiang', 'June Wu', 'Ma Xiaojiang']);
 
     function getThumbPhotoPath(photoPath) {
@@ -57,17 +58,50 @@
     /**
      * 按批次渲染记忆卡片，减少首屏阻塞
      */
-    function appendMemories(count) {
-        const end = Math.min(renderedCount + count, wishesData.length);
-
-        for (let index = renderedCount; index < end; index++) {
-            const data = wishesData[index];
-            const card = createMemoryCard(data);
-            card.style.animationDelay = `${index * 0.1}s`;
-            memoriesGrid.appendChild(card);
+    function scheduleFrame(callback) {
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(callback, { timeout: 120 });
+            return;
         }
 
-        renderedCount = end;
+        window.requestAnimationFrame(() => callback());
+    }
+
+    function appendMemories(count, onComplete) {
+        if (isAppending) {
+            return;
+        }
+
+        isAppending = true;
+        const end = Math.min(renderedCount + count, wishesData.length);
+        const chunkSize = 3;
+
+        function appendChunk() {
+            const fragment = document.createDocumentFragment();
+            const chunkEnd = Math.min(renderedCount + chunkSize, end);
+
+            for (let index = renderedCount; index < chunkEnd; index++) {
+                const data = wishesData[index];
+                const card = createMemoryCard(data);
+                card.style.animationDelay = `${index * 0.06}s`;
+                fragment.appendChild(card);
+            }
+
+            memoriesGrid.appendChild(fragment);
+            renderedCount = chunkEnd;
+
+            if (renderedCount < end) {
+                scheduleFrame(appendChunk);
+                return;
+            }
+
+            isAppending = false;
+            if (typeof onComplete === 'function') {
+                onComplete();
+            }
+        }
+
+        appendChunk();
     }
 
     function mountLoadMoreTrigger() {
@@ -85,12 +119,13 @@
                     return;
                 }
 
-                appendMemories(batchSize);
+                appendMemories(batchSize, () => {
+                    if (renderedCount >= wishesData.length) {
+                        loadMoreObserver.disconnect();
+                        sentinel.remove();
+                    }
+                });
 
-                if (renderedCount >= wishesData.length) {
-                    loadMoreObserver.disconnect();
-                    sentinel.remove();
-                }
             });
         }, {
             rootMargin: '180px 0px'
@@ -102,8 +137,7 @@
     function renderMemories() {
         memoriesGrid.innerHTML = '';
         renderedCount = 0;
-        appendMemories(initialBatch);
-        mountLoadMoreTrigger();
+        appendMemories(initialBatch, mountLoadMoreTrigger);
     }
 
     // 页面加载完成后渲染
