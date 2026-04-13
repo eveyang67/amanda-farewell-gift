@@ -15,6 +15,11 @@
     // 用于记录已抽过的索引，避免短时间内重复
     let drawnIndices = [];
     const warmImageCache = new Set();
+    const defaultDrawLabel = drawBtn.innerHTML;
+
+    function sleep(milliseconds) {
+        return new Promise(resolve => window.setTimeout(resolve, milliseconds));
+    }
 
     function getThumbPhotoPath(photoPath) {
         if (typeof photoPath !== 'string') {
@@ -70,19 +75,30 @@
      * 执行抽签动画
      */
     async function draw() {
+        if (drawBtn.disabled) {
+            return;
+        }
+
         const wish = getRandomWish();
 
-        // 隐藏按钮，显示卡片容器
-        drawBtn.style.display = 'none';
-        cardContainer.style.display = 'flex';
+        drawBtn.disabled = true;
+        drawBtn.classList.add('is-drawing');
+        drawBtn.innerHTML = '签文<br>浮现';
 
-        // 重置状态
+        cardContainer.style.display = 'none';
         resultCard.classList.remove('show');
         resultPhoto.classList.remove('clear');
         dailyQuote.classList.remove('show');
         resultBlessing.textContent = '';
+        dailyQuote.textContent = '';
 
-        // 设置照片（先模糊）
+        await sleep(760);
+
+        drawBtn.classList.remove('is-drawing');
+        drawBtn.style.display = 'none';
+        drawBtn.innerHTML = defaultDrawLabel;
+        cardContainer.style.display = 'flex';
+
         resultPhoto.src = getThumbPhotoPath(wish.photo);
         resultPhoto.dataset.fullsrc = wish.photo;
         resultPhoto.onerror = () => {
@@ -106,6 +122,7 @@
         resultBlessing.textContent = wish.blessing;
 
         dailyQuote.textContent = `日签：${wish.dailyQuote}`;
+        await sleep(180);
         dailyQuote.classList.add('show');
     }
 
@@ -115,6 +132,9 @@
     function reset() {
         cardContainer.style.display = 'none';
         drawBtn.style.display = 'flex';
+        drawBtn.disabled = false;
+        drawBtn.classList.remove('is-drawing');
+        drawBtn.innerHTML = defaultDrawLabel;
         
         resultCard.classList.remove('show');
         resultPhoto.classList.remove('clear');
