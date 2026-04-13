@@ -86,8 +86,12 @@
         drawBtn.innerHTML = '签文<br>浮现';
 
         cardContainer.style.display = 'none';
+        cardContainer.classList.remove('is-unfolding');
         resultCard.classList.remove('show');
+        resultCard.classList.remove('is-unfolding');
         resultPhoto.classList.remove('clear');
+        resultPhoto.classList.remove('show');
+        resultBlessing.classList.remove('show');
         dailyQuote.classList.remove('show');
         resultBlessing.textContent = '';
         dailyQuote.textContent = '';
@@ -98,6 +102,7 @@
         drawBtn.style.display = 'none';
         drawBtn.innerHTML = defaultDrawLabel;
         cardContainer.style.display = 'flex';
+        cardContainer.classList.add('is-unfolding');
 
         resultPhoto.src = getThumbPhotoPath(wish.photo);
         resultPhoto.dataset.fullsrc = wish.photo;
@@ -106,9 +111,13 @@
                 resultPhoto.src = wish.photo;
             }
         };
-        resultPhoto.classList.add('clear');
-
+        
+        resultCard.classList.add('is-unfolding');
         resultCard.classList.add('show');
+        await sleep(240);
+
+        resultPhoto.classList.add('clear');
+        resultPhoto.classList.add('show');
 
         if (resultPhoto.dataset.fullsrc) {
             const fullImage = new Image();
@@ -120,9 +129,11 @@
         }
 
         resultBlessing.textContent = wish.blessing;
+        await sleep(180);
+        resultBlessing.classList.add('show');
 
         dailyQuote.textContent = `日签：${wish.dailyQuote}`;
-        await sleep(180);
+        await sleep(220);
         dailyQuote.classList.add('show');
     }
 
@@ -131,13 +142,17 @@
      */
     function reset() {
         cardContainer.style.display = 'none';
+        cardContainer.classList.remove('is-unfolding');
         drawBtn.style.display = 'flex';
         drawBtn.disabled = false;
         drawBtn.classList.remove('is-drawing');
         drawBtn.innerHTML = defaultDrawLabel;
         
+        resultCard.classList.remove('is-unfolding');
         resultCard.classList.remove('show');
         resultPhoto.classList.remove('clear');
+        resultPhoto.classList.remove('show');
+        resultBlessing.classList.remove('show');
         dailyQuote.classList.remove('show');
         resultBlessing.textContent = '';
     }
