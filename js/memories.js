@@ -15,7 +15,8 @@
         'Ma Xiaojiang',
         'Belle Qin',
         'Echo Pi',
-        'Jackie Sun'
+        'Jackie Sun',
+        'Telisiah Utami Putri'
     ]);
 
     function getThumbPhotoPath(photoPath) {
