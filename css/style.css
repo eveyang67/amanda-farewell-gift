@@ -550,6 +550,19 @@ a {
     border: 1px solid rgba(255, 255, 255, 0.26);
 }
 
+.draw-button.is-drawing {
+    transform: scale(0.98);
+    box-shadow:
+        0 16px 44px rgba(10, 28, 14, 0.34),
+        0 0 0 10px rgba(238, 241, 93, 0.08);
+    animation: drawButtonPulse 0.9s ease-in-out infinite;
+}
+
+.draw-button.is-drawing::after {
+    border-color: rgba(255, 245, 137, 0.62);
+    animation: drawButtonRing 0.9s ease-in-out infinite;
+}
+
 /* 卡片容器 */
 .card-container {
     perspective: 1000px;
@@ -618,6 +631,26 @@ a {
 
 .daily-quote.show {
     opacity: 1;
+}
+
+@keyframes drawButtonPulse {
+    0%, 100% {
+        transform: scale(0.98) translateY(0);
+    }
+    50% {
+        transform: scale(1.03) translateY(-4px);
+    }
+}
+
+@keyframes drawButtonRing {
+    0%, 100% {
+        inset: 14px;
+        opacity: 0.8;
+    }
+    50% {
+        inset: 9px;
+        opacity: 1;
+    }
 }
 
 /* 操作按钮区 */
